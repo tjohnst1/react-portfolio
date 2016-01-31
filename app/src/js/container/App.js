@@ -7,7 +7,7 @@ export default class App extends Component {
   render(){
     const categories = ["About", "Contact", "Projects"]
     return (
-      <div className="main-container">
+      <div>
         <Header />
         <Nav categories={categories}/>
         <p>Hello World!</p>

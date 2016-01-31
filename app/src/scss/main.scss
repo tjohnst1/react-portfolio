@@ -4,6 +4,7 @@
         'header',
         'nav';
 
-.main-container{
-  @include outer-container;
+body{
+  margin: 0;
+  font-family: "mic-32-new-web";
 }

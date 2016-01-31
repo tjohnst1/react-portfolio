@@ -1,0 +1,31 @@
+.nav-container{
+  @include span-columns(12);
+  background: yellow;
+  width: 100%;
+  height: 100vh;
+  padding: 10% 0 0 10%;
+}
+
+.nav-heading{
+  font-size: 0.8em;
+  position: relative;
+  margin: 0 0 3% 0;
+  &::after{
+    content: '';
+    height: 2px;
+    width: 2em;
+    background: black;
+    position: absolute;
+    top: 2em;
+    left: 0;
+  }
+}
+
+.nav-category-container{
+
+}
+
+.nav-contact-container{
+  margin: 2% 0 0 0;
+  font-size: 0.8em;
+}
