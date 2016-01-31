@@ -1,0 +1,12 @@
+.header-container{
+  @include span-columns(12);
+}
+
+.header-logo-container{
+  @include span-columns(4);
+}
+
+.header-hamburger{
+  @include span-columns(2);
+  @include shift(6);
+}

@@ -1,2 +1,8 @@
 @import 'bourbon/bourbon',
-        'neat/neat';
+        'neat/neat',
+        'base/base',
+        'header';
+
+.main-container{
+  @include outer-container;
+}
