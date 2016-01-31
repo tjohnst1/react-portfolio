@@ -5,13 +5,13 @@ var gulp = require('gulp'),
 gulp.task('default', ['watch']);
 
 gulp.task('build-css', function(){
-  return gulp.src('./src/scss/**/*.scss')
+  return gulp.src('app/src/scss/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('app/dist'));
 });
 
 gulp.task('watch', function(){
-  gulp.watch('./src/scss/**/*.scss', ['build-css']);
+  gulp.watch('app/src/scss/**/*.scss', ['build-css']);
 })
