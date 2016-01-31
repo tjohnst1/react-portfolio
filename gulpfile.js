@@ -5,9 +5,10 @@ var gulp = require('gulp'),
 gulp.task('default', ['watch']);
 
 gulp.task('build-css', function(){
-  return gulp.src('./src/**/*.scss')
+  return gulp.src('./src/scss/**/*.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass())
-    .pipe(sourcemaps())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./dist'));
 });
 
