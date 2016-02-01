@@ -4,6 +4,7 @@ import Nav from '../components/Nav'
 import Projects from '../components/Projects'
 import IndividualProject from '../components/IndividualProject'
 import postData from '../../data/postData'
+import {Link} from 'react-router'
 
 export default class App extends Component {
   constructor(){
@@ -20,8 +21,7 @@ export default class App extends Component {
     return (
       <div>
         <Header toggleNav={() => this.toggleNav()} />
-        <Projects />
-        <IndividualProject project={postData[0]}/>
+        {this.props.children}
         <Nav categories={categories} navShowing={this.state.navShowing}/>
       </div>
     )
