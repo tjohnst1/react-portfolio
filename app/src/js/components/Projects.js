@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import IndividualProject from './IndividualProject'
+import ProjectList from './ProjectList'
 import postData from '../../data/postData'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 export default class Projects extends Component {
   constructor(){
@@ -11,17 +13,9 @@ export default class Projects extends Component {
   render(){
     let id = Number(this.props.params.projectId)
     let project = postData[id]
-    console.log(project)
-    const posts = postData.map((post, i) => {
-      const inlineStyle = {backgroundImage: `url(${post.thumbnail})`}
-      return (<div className="project-thumbnail" style={inlineStyle} key={i}>
-               <h3 className="project-thumbnail-title">{post.title}</h3>
-             </div>)
-    })
     return (
-      <div className="fs-container projects-container">
-        {posts}
-        {id !== undefined ? <IndividualProject project={project} /> : null}
+      <div>
+        { /\d/.test(id) ? <IndividualProject project={project} /> : <ProjectList projects={postData} /> }
       </div>
     )
   }
