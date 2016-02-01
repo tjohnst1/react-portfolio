@@ -1,0 +1,53 @@
+.project-container{
+  position: absolute;
+  padding: 10% 0 0 0;
+  height: 100vh;
+}
+
+.project-info{
+  background: #eee;
+  padding: 2.5% 0;
+  height: 100%;
+}
+
+.project-text-container{
+}
+
+.project-title{
+  font-size: 2em;
+  position: relative;
+  margin: 0;
+}
+
+.project-brief{
+  font-size: 0.8em;
+}
+
+.project-action-btns{
+  a{
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid black;
+    margin: 0 10px 0 0;
+  }
+  a:last-of-type{
+    margin: 0;
+  }
+}
+
+.project-metadata{
+  font-size: 0.8em;
+  margin: 0 0 10px 0;
+  p{
+    margin: 0;
+  }
+}
+
+.project-image-container{
+  height: 100%;
+}
+
+.project-image{
+  height: 100%;
+  width: 100%;
+}
