@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router'
 import basicInfo from '../constants/basicInfo'
 import classNames from 'classnames'
 
@@ -7,8 +8,8 @@ export default class Nav extends Component {
   render(){
     const url = basicInfo.url
     const navLinks = this.props.categories.map((category, i) => {
-      const link = `${basicInfo.url}/${category}`
-      return <li key={i}><a href={link}>{category}</a></li>
+      const url = `/${category.toLowerCase()}`
+      return <li key={i}><Link to={url}>{category}</Link></li>
     })
     let navContainer = classNames({
       "fs-container": true,

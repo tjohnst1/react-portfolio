@@ -21,8 +21,8 @@ export default class App extends Component {
     return (
       <div>
         <Header toggleNav={() => this.toggleNav()} />
-        {this.props.children}
         <Nav categories={categories} navShowing={this.state.navShowing}/>
+        {this.props.children}
       </div>
     )
   }

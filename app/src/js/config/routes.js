@@ -8,7 +8,7 @@ import { Router, Route, IndexRoute } from 'react-router'
 export default (
   <Route path="/" component={App}>
     <Route path="projects" component={Projects}>
-      <Route path="/project/:projectId" component={IndividualProject} />
+      <Route path=":projectId" component={IndividualProject} />
     </Route>
   </Route>
 )
