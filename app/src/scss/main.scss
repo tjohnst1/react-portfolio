@@ -3,9 +3,16 @@
         'base/base',
         'zindex',
         'header',
-        'nav';
+        'nav',
+        'projects';
 
 body{
   margin: 0;
   font-family: "mic-32-new-web";
+}
+
+.fs-container{
+  padding: 10%;
+  width: 100%;
+  height: 100%;
 }

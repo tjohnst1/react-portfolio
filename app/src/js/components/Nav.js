@@ -11,6 +11,7 @@ export default class Nav extends Component {
       return <li key={i}><a href={link}>{category}</a></li>
     })
     let navContainer = classNames({
+      "fs-container": true,
       "nav-container": true,
       "showing": this.props.navShowing
     })

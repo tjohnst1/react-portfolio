@@ -15,13 +15,12 @@ export default class App extends Component {
   }
   render(){
     const categories = ["About", "Contact", "Projects"]
-    console.log(this.state)
     return (
       <div>
         <Header toggleNav={() => this.toggleNav()} />
+        <Projects />
         <Nav categories={categories} navShowing={this.state.navShowing}/>
       </div>
     )
   }
-
 }
