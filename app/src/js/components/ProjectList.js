@@ -7,7 +7,7 @@ export default class ProjectList extends Component {
     const projectPreviews = projects.map((project, i) => {
       const inlineStyle = {backgroundImage: `url(${project.thumbnail})`}
       return (
-        <Link to={`projects/${project.id}`} key={i}>
+        <Link to={`projects/${project.id}`} key={i} className="project-container-link">
           <div className="project-thumbnail" style={inlineStyle}>
             <h3 className="project-thumbnail-title">{project.title}</h3>
           </div>
@@ -16,7 +16,7 @@ export default class ProjectList extends Component {
     })
     return (
       <div className="fs-container projects-container">
-        {projectPreviews}
+          {projectPreviews}
       </div>
     )
   }
