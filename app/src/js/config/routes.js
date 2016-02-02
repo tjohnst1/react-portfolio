@@ -4,6 +4,7 @@ import Projects from '../components/Projects'
 import IndividualProject from '../components/IndividualProject'
 import Home from '../components/Home'
 import About from '../components/About'
+import Contact from '../components/Contact'
 import { Router, Route, IndexRoute } from 'react-router'
 
 
@@ -14,5 +15,6 @@ export default (
     </Route>
     <Route path="home" component={Home} />
     <Route path="about" component={About} />
+    <Route path="contact" component={Contact} />
   </Route>
 )
