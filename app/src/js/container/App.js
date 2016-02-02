@@ -13,12 +13,19 @@ export default class App extends Component {
     this.setState({navShowing: !this.state.navShowing})
   }
   render(){
-    const categories = ["About", "Contact", "Projects"]
+    const categories = ["Home", "About", "Contact", "Projects"]
+    const childrenWithProps = React.Children.map(this.props.children,
+      (child) => {
+        return React.cloneElement(child, {
+          toggleNav: () => this.toggleNav,
+          navShowing: this.state.navShowing
+        })
+      })
     return (
       <div>
         <Header toggleNav={() => this.toggleNav()} />
-        <Nav categories={categories} navShowing={this.state.navShowing}/>
-        {this.props.children}
+        <Nav categories={categories} navShowing={this.state.navShowing} toggleNav={() => this.toggleNav()}/>
+        {childrenWithProps}
       </div>
     )
   }

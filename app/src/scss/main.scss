@@ -13,8 +13,14 @@ body{
   font-family: "mic-32-new-web";
 }
 
-.fs-container{
+.fixed-container{
   padding: 10%;
   width: 100%;
   height: 100%;
+  position: absolute;
+  @include transition(all 0.7s cubic-bezier(0.91, 0.01, 0.6, 0.99));
+}
+
+.closed{
+  @include transform(translateX(100%));
 }

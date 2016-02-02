@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import classNames from 'classnames'
 
 export default class IndividualProject extends Component {
 
@@ -6,8 +7,13 @@ export default class IndividualProject extends Component {
     const project = this.props.project
     const backgroundImg = {backgroundImage: `url(${project.thumbnail})`}
     const projectImg = {backgroundImage: `url(${project.thumbnail})`}
+    const containerClasses = classNames({
+      "project-container": true,
+      "fixed-container": true,
+      "closed": this.props.navShowing
+    })
     return (
-      <div className="project-container" style={backgroundImg}>
+      <div className={containerClasses} style={backgroundImg}>
         <div className="project-info">
           <div className="project-summary">
             <h1 className="project-title">{project.title}</h1>

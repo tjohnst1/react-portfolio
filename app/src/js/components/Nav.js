@@ -9,10 +9,9 @@ export default class Nav extends Component {
     const url = basicInfo.url
     const navLinks = this.props.categories.map((category, i) => {
       const url = `/${category.toLowerCase()}`
-      return <li key={i}><Link to={url}>{category}</Link></li>
+      return <li key={i}><Link to={url} onClick={this.props.toggleNav}>{category}</Link></li>
     })
     let navContainer = classNames({
-      "fs-container": true,
       "nav-container": true,
       "showing": this.props.navShowing
     })

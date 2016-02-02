@@ -3,7 +3,7 @@ import IndividualProject from './IndividualProject'
 import ProjectList from './ProjectList'
 import postData from '../../data/postData'
 import ReactCSSTransitionGroup from "react-addons-css-transition-group"
-
+import classNames from 'classnames'
 
 export default class Projects extends Component {
   constructor(){
@@ -16,9 +16,7 @@ export default class Projects extends Component {
     let project = postData[id]
     return (
       <div>
-         <ReactCSSTransitionGroup transitionName="example" transitionAppear={true} transitionAppearTimeout={500} transitionEnterTimeout={500} transitionLeaveTimeout={500}>
-           { /\d/.test(id) ? <IndividualProject project={project} /> : <ProjectList projects={postData} /> }
-        </ReactCSSTransitionGroup>
+        { /\d/.test(id) ? <IndividualProject project={project} /> : <ProjectList projects={postData} /> }
       </div>
     )
   }
