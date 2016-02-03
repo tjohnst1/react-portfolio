@@ -1,8 +1,15 @@
-.example-appear {
-  opacity: 0.01;
+.slide-enter {
+  @include transform(translateX(100%));
 }
 
-.example-appear.example-appear-active {
-  opacity: 1;
-  transition: opacity .5s ease-in;
+.slide-enter.slide-enter-active {
+  @include transform(translateX(0));
+}
+
+.slide-leave {
+  @include transform(translateX(0));
+}
+
+.slide-leave.slide-leave-active {
+  @include transform(translateX(100%));
 }

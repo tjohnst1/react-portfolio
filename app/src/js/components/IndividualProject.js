@@ -1,10 +1,13 @@
 import React, {Component, PropTypes} from 'react'
 import classNames from 'classnames'
+import postData from '../../data/postData'
 
 export default class IndividualProject extends Component {
-
+  componentWillUnmount(){
+    console.log("here")
+  }
   render(){
-    const project = this.props.project
+    const project = postData[Number(this.props.params.projectId)]
     const backgroundImg = {backgroundImage: `url(${project.thumbnail})`}
     const projectImg = {backgroundImage: `url(${project.thumbnail})`}
     const containerClasses = classNames({
@@ -12,8 +15,9 @@ export default class IndividualProject extends Component {
       "fixed-container": true,
       "closed": this.props.navShowing
     })
+    console.log(this.props)
     return (
-      <div className={containerClasses} style={backgroundImg}>
+      <div className={containerClasses}>
         <div className="project-info">
           <div className="project-summary">
             <h1 className="project-title">{project.title}</h1>

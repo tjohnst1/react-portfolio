@@ -6,6 +6,9 @@
         'nav',
         'projects',
         'individualProject',
+        'about',
+        'contact',
+        'home',
         'transitions';
 
 body{
@@ -18,9 +21,13 @@ body{
   width: 100%;
   height: 100%;
   position: absolute;
-  @include transition(all 0.7s cubic-bezier(0.91, 0.01, 0.6, 0.99));
+  @include transition(all 0.5s ease-in-out);
 }
 
 .closed{
   @include transform(translateX(100%));
+}
+
+.open{
+  @include transform(translateX(0));
 }

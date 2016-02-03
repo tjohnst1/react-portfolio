@@ -5,8 +5,8 @@ export default class Header extends Component {
     return (
       <div className="header-container">
         <div className="header-logo-container">
-          <h1 className="header-logo">Travis Johnston</h1>
-          <h2 className="header-subheading">Web Developer & Designer</h2>
+          <h1 className="header-logo">Logo Placeholder</h1>
+          <h2 className="header-subheading">Subheading Placeholder</h2>
         </div>
         <div className="header-hamburger" onClick={this.props.toggleNav}>Button</div>
       </div>

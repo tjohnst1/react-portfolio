@@ -8,7 +8,7 @@
   position: absolute;
   z-index: $z-nav;
   @include transform(translateX(-100%));
-  @include transition(all 0.7s cubic-bezier(0.91, 0.01, 0.6, 0.99));
+  @include transition(all 0.5s ease-in-out);
   &.showing{
     @include transform(translateX(0));
   }
