@@ -9,6 +9,21 @@
 
 .header-logo-container{
   @include span-columns(4);
+  // margin: 0;
+}
+
+.header-links-container{
+  @include span-columns(8);
+  text-align: right;
+  .header-links{
+    @include span-columns(2);
+    .currentRoute{
+      color: $grey;
+    }
+  }
+  .header-links:first-of-type{
+    @include shift(6);
+  }
 }
 
 .header-logo{
@@ -19,7 +34,6 @@
   margin: 0;
 }
 
-.header-hamburger{
-  @include span-columns(2);
-  @include shift(6);
+.header-links{
+  display: inline-block;
 }
