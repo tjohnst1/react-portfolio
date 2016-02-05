@@ -10,6 +10,6 @@ export const changeRoute = (route) => {
 export const findProject = (projectId) => {
   return {
     type: 'FIND_PROJECT',
-    id: projectId
+    selectedProject: projectId
   }
 }
