@@ -4,10 +4,10 @@ import classNames from 'classnames'
 
 export default class Header extends Component {
   render(){
-    console.log(this.props.currentRoute)
     const aboutClasses = classNames({"header-links": true, "current-route": this.props.currentRoute === "/about"})
     const contactClasses = classNames({"header-links": true, "current-route": this.props.currentRoute === "/contact"})
     const projectsClasses = classNames({"header-links": true, "current-route": this.props.currentRoute === "/projects"})
+    console.log(this.props.currentRoute)
     return (
       <div className="header-container">
         <div className="header-logo-container">

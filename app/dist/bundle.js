@@ -24073,7 +24073,7 @@
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _Nav = __webpack_require__(209);
+	var _Nav = __webpack_require__(210);
 
 	var _Nav2 = _interopRequireDefault(_Nav);
 
@@ -24104,7 +24104,8 @@
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this));
 
 	    _this.state = {
-	      navShowing: false
+	      navShowing: false,
+	      currentRoute: "/"
 	    };
 	    return _this;
 	  }
@@ -24113,6 +24114,11 @@
 	    key: 'toggleNav',
 	    value: function toggleNav() {
 	      this.setState({ navShowing: !this.state.navShowing });
+	    }
+	  }, {
+	    key: 'setCurrentRoute',
+	    value: function setCurrentRoute(route) {
+	      this.setState({ currentRoute: route });
 	    }
 	  }, {
 	    key: 'render',
@@ -24126,6 +24132,10 @@
 	            return _this2.toggleNav;
 	          },
 	          navShowing: _this2.state.navShowing,
+	          currentRoute: _this2.state.currentRoute,
+	          setCurrentRoute: function setCurrentRoute(route) {
+	            return _this2.setCurrentRoute;
+	          },
 	          key: _.uniqueId()
 	        });
 	      });
@@ -24136,7 +24146,7 @@
 	        null,
 	        _react2.default.createElement(_Header2.default, { toggleNav: function toggleNav() {
 	            return _this2.toggleNav();
-	          } }),
+	          }, currentRoute: path }),
 	        _react2.default.createElement(_Nav2.default, { categories: categories, navShowing: this.state.navShowing, toggleNav: function toggleNav() {
 	            return _this2.toggleNav();
 	          } }),
@@ -24158,7 +24168,7 @@
 /* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -24169,6 +24179,12 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(159);
+
+	var _classnames = __webpack_require__(209);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24188,29 +24204,59 @@
 	  }
 
 	  _createClass(Header, [{
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
+	      console.log(this.props.currentRoute);
+	      var aboutClasses = (0, _classnames2.default)({ "header-links": true, "current-route": this.props.currentRoute === "/about" });
+	      var contactClasses = (0, _classnames2.default)({ "header-links": true, "current-route": this.props.currentRoute === "/contact" });
+	      var projectsClasses = (0, _classnames2.default)({ "header-links": true, "current-route": this.props.currentRoute === "/projects" });
 	      return _react2.default.createElement(
-	        "div",
-	        { className: "header-container" },
+	        'div',
+	        { className: 'header-container' },
 	        _react2.default.createElement(
-	          "div",
-	          { className: "header-logo-container" },
+	          'div',
+	          { className: 'header-logo-container' },
 	          _react2.default.createElement(
-	            "h1",
-	            { className: "header-logo" },
-	            "Logo Placeholder"
+	            'h1',
+	            { className: 'header-logo' },
+	            'Travis Johnston'
 	          ),
 	          _react2.default.createElement(
-	            "h2",
-	            { className: "header-subheading" },
-	            "Subheading Placeholder"
+	            'h2',
+	            { className: 'header-subheading' },
+	            'Web Developer & Designer'
 	          )
 	        ),
 	        _react2.default.createElement(
-	          "div",
-	          { className: "header-hamburger", onClick: this.props.toggleNav },
-	          "Button"
+	          'ul',
+	          { className: 'header-links-container' },
+	          _react2.default.createElement(
+	            'li',
+	            { className: aboutClasses },
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/about' },
+	              'About'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            { className: contactClasses },
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/contact' },
+	              'Contact'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            { className: projectsClasses },
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/projects' },
+	              'Projects'
+	            )
+	          )
 	        )
 	      );
 	    }
@@ -24223,6 +24269,60 @@
 
 /***/ },
 /* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  Copyright (c) 2016 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+	/* global define */
+
+	(function () {
+		'use strict';
+
+		var hasOwn = {}.hasOwnProperty;
+
+		function classNames () {
+			var classes = [];
+
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+
+				var argType = typeof arg;
+
+				if (argType === 'string' || argType === 'number') {
+					classes.push(arg);
+				} else if (Array.isArray(arg)) {
+					classes.push(classNames.apply(null, arg));
+				} else if (argType === 'object') {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				}
+			}
+
+			return classes.join(' ');
+		}
+
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if (true) {
+			// register as 'classnames', consistent with npm package name
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return classNames;
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+			window.classNames = classNames;
+		}
+	}());
+
+
+/***/ },
+/* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24239,11 +24339,11 @@
 
 	var _reactRouter = __webpack_require__(159);
 
-	var _basicInfo = __webpack_require__(210);
+	var _basicInfo = __webpack_require__(211);
 
 	var _basicInfo2 = _interopRequireDefault(_basicInfo);
 
-	var _classnames = __webpack_require__(211);
+	var _classnames = __webpack_require__(209);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -24336,7 +24436,7 @@
 	exports.default = Nav;
 
 /***/ },
-/* 210 */
+/* 211 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -24352,60 +24452,6 @@
 	};
 
 	exports.default = basicInfo;
-
-/***/ },
-/* 211 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	  Copyright (c) 2016 Jed Watson.
-	  Licensed under the MIT License (MIT), see
-	  http://jedwatson.github.io/classnames
-	*/
-	/* global define */
-
-	(function () {
-		'use strict';
-
-		var hasOwn = {}.hasOwnProperty;
-
-		function classNames () {
-			var classes = [];
-
-			for (var i = 0; i < arguments.length; i++) {
-				var arg = arguments[i];
-				if (!arg) continue;
-
-				var argType = typeof arg;
-
-				if (argType === 'string' || argType === 'number') {
-					classes.push(arg);
-				} else if (Array.isArray(arg)) {
-					classes.push(classNames.apply(null, arg));
-				} else if (argType === 'object') {
-					for (var key in arg) {
-						if (hasOwn.call(arg, key) && arg[key]) {
-							classes.push(key);
-						}
-					}
-				}
-			}
-
-			return classes.join(' ');
-		}
-
-		if (typeof module !== 'undefined' && module.exports) {
-			module.exports = classNames;
-		} else if (true) {
-			// register as 'classnames', consistent with npm package name
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
-				return classNames;
-			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-		} else {
-			window.classNames = classNames;
-		}
-	}());
-
 
 /***/ },
 /* 212 */
@@ -39793,7 +39839,7 @@
 
 	var _reactRouter = __webpack_require__(159);
 
-	var _classnames = __webpack_require__(211);
+	var _classnames = __webpack_require__(209);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -39923,7 +39969,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(211);
+	var _classnames = __webpack_require__(209);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -40058,7 +40104,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(211);
+	var _classnames = __webpack_require__(209);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -40083,16 +40129,39 @@
 	    key: 'render',
 	    value: function render() {
 	      var containerClasses = (0, _classnames2.default)({
+	        "home-container": true,
 	        "fixed-container": true,
 	        "closed": this.props.navShowing
 	      });
+	      this.props.setCurrentRoute(this.props.route);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: containerClasses },
 	        _react2.default.createElement(
 	          'p',
-	          null,
-	          'This is the home screen. Some splashy blurb about things and such.'
+	          { className: 'home-intro-text' },
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'underline' },
+	            'Travis'
+	          ),
+	          ' is a ',
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'underline' },
+	            'front end developer'
+	          ),
+	          ' currently based in beautiful Portland, Oregon.'
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'home-btn' },
+	          'Porfolio'
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'home-btn' },
+	          'Contact'
 	        )
 	      );
 	    }
@@ -40119,11 +40188,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(211);
+	var _classnames = __webpack_require__(209);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _basicInfo = __webpack_require__(210);
+	var _basicInfo = __webpack_require__(211);
 
 	var _basicInfo2 = _interopRequireDefault(_basicInfo);
 
@@ -40163,7 +40232,12 @@
 	        _react2.default.createElement(
 	          'p',
 	          null,
-	          'I am web developer and designer with previous experience in the fields of graphic design and video post production. My interests, among others, include design, technology, and about how to express ideas creatively in the digital space.'
+	          'I am front end web developer with previous experience in graphic design and video post production. My interests, among others, include design, technology, and about how to express ideas creatively in the digital space.'
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          'Skills'
 	        ),
 	        _react2.default.createElement(
 	          'p',
@@ -40200,11 +40274,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(211);
+	var _classnames = __webpack_require__(209);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _basicInfo = __webpack_require__(210);
+	var _basicInfo = __webpack_require__(211);
 
 	var _basicInfo2 = _interopRequireDefault(_basicInfo);
 
@@ -40235,6 +40309,11 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: containerClasses },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Do you have a project idea or just want to say hi? Feel free to reach out via e-mail or social media. I’ll try my best to get back to you promptly.'
+	        ),
 	        _react2.default.createElement(
 	          'ul',
 	          null,

@@ -3,7 +3,9 @@ import classNames from 'classnames'
 import basicInfo from '../../data/basicInfo'
 
 export default class Contact extends Component {
-
+  componentWillMount(){
+    this.props.setCurrentRoute(this.props.location.pathname)
+  }
   render(){
     const containerClasses = classNames({
       "fixed-container": true,

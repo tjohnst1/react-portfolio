@@ -4,6 +4,9 @@ import basicInfo from '../../data/basicInfo'
 import * as _ from 'lodash'
 
 export default class About extends Component {
+  componentWillMount(){
+    this.props.setCurrentRoute(this.props.location.pathname)
+  }
   render(){
     const containerClasses = classNames({
       "fixed-container": true,
