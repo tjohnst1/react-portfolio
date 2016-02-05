@@ -1,26 +1,34 @@
+import { CHANGE_ROUTE, FIND_PROJECT } from '../constants/constants'
 import postData from ../../data/postData;
 import { combineReducers } from 'redux'
 
 const initialState = postData
 
-const projects = (state = initialState, action) => {
+const selectedProject = (state = false, action) => {
   switch (action.type){
     case 'FIND_PROJECT':
-      return {
-        state.filter((project) => project.id === projectId)
-      }
+      return action.selectedProject
     default:
       return state
   }
 }
 
-const route = (state = '/', action) => {
+const currentRoute = (state = '/', action) => {
   switch (action.type){
     case 'CHANGE_ROUTE':
       return action.route
+    default:
+      return state
   }
 }
 
-const portfolio = combineReducers({projects, route})
+const projects = (state = initialState, action) => {
+  switch (action.type){
+    default:
+      return state
+  }
+}
 
-export default portfolio
+const rootReducer = combineReducers({projects, selectedProject, currentRoute})
+
+export default rootReducer
