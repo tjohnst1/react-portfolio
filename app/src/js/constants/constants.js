@@ -1,2 +1,2 @@
 export const CHANGE_ROUTE = 'CHANGE_ROUTE'
-export const FIND_POST = 'FIND_POST'
+export const FIND_PROJECT = 'FIND_POST'
