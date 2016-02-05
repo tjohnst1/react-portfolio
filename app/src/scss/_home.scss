@@ -1,0 +1,40 @@
+.home-container{
+  background: $off-white;
+  z-index: $z-home;
+}
+
+.home-intro-text{
+  color: black;
+  font-size: 3em;
+  .underline{
+    border-bottom: 2px solid $red;
+    position: relative;
+    @include transition(all 0.3s 0.1s);
+    &:hover{
+      color: $off-white;
+      &::after{
+        height: 1em;
+      }
+    }
+    &::after{
+      content: '';
+      height: 2px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: $red;
+      width: 100%;
+      @include transition(all 0.3s);
+      z-index: $z-home-intro-underline;
+    }
+  }
+}
+
+.home-btn{
+  border: 2px solid black;
+  background: none;
+  color: black;
+  &:hover{
+    background: none;
+  }
+}

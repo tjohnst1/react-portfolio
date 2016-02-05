@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import Header from '../components/Header'
 import Nav from '../components/Nav'
-import { TransitionMotion, spring } from 'react-motion';
-
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import * as _ from 'lodash'
 
 export default class App extends Component {
@@ -33,7 +32,9 @@ export default class App extends Component {
       <div>
         <Header toggleNav={() => this.toggleNav()} />
         <Nav categories={categories} navShowing={this.state.navShowing} toggleNav={() => this.toggleNav()}/>
-        { this.props.children }
+        <ReactCSSTransitionGroup transitionName="slide" transitionAppear={true} transitionAppearTimeout={500} transitionEnterTimeout={500} transitionLeaveTimeout={500}>
+          { childrenWithProps }
+        </ReactCSSTransitionGroup>
       </div>
     )
   }

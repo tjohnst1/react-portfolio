@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import classNames from 'classnames'
+import basicInfo from '../../data/basicInfo'
 
 export default class Contact extends Component {
 
@@ -10,7 +11,11 @@ export default class Contact extends Component {
     })
     return (
       <div className={containerClasses}>
-        <p>Contact me with the interwebz</p>
+        <ul>
+          <li>{basicInfo.email}</li>
+          <li>{basicInfo.linkedin}</li>
+          <li>{basicInfo.github}</li>
+        </ul>
       </div>
     )
   }

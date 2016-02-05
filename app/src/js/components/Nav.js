@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router'
-import basicInfo from '../constants/basicInfo'
+import basicInfo from '../../data/basicInfo'
 import classNames from 'classnames'
 
 export default class Nav extends Component {
