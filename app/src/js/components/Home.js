@@ -12,7 +12,8 @@ export default class Home extends Component {
     return (
       <div className={containerClasses}>
         <p className="home-intro-text"><span className="underline">Travis</span> is a <span className="underline">front end developer</span> currently based in beautiful Portland, Oregon.</p>
-        <button className="home-btn">Check out my Porfolio</button>
+        <button className="home-btn">Porfolio</button>
+        <button className="home-btn">Contact</button>
       </div>
     )
   }

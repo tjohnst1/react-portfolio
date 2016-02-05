@@ -11,6 +11,7 @@ export default class Contact extends Component {
     })
     return (
       <div className={containerClasses}>
+        <p>Do you have a project idea or just want to say hi? Feel free to reach out via e-mail or social media. I&#8217;ll try my best to get back to you promptly.</p>
         <ul>
           <li>{basicInfo.email}</li>
           <li>{basicInfo.linkedin}</li>
