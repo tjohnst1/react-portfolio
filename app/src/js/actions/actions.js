@@ -1,8 +1,9 @@
 import { CHANGE_ROUTE, FIND_PROJECT } from '../constants/constants'
 
-export const changeRoute = () => {
+export const changeRoute = (route) => {
   return {
-    type: 'CHANGE_ROUTE'
+    type: 'CHANGE_ROUTE',
+    route: route
   }
 }
 

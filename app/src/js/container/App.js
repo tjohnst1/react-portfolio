@@ -13,6 +13,7 @@ export default class App extends Component {
       currentRoute: ""
     }
   }
+  
   toggleNav(){
     this.setState({navShowing: !this.state.navShowing})
   }
