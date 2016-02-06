@@ -2,9 +2,6 @@ import React, {Component, PropTypes} from 'react'
 import classNames from 'classnames'
 
 export default class Home extends Component {
-  componentWillMount(){
-    this.props.setCurrentRoute(this.props.location.pathname)
-  }
   render(){
     const containerClasses = classNames({
       "home-container": true,

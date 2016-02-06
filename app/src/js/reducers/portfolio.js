@@ -1,5 +1,5 @@
 import { CHANGE_ROUTE, FIND_PROJECT } from '../constants/constants'
-import postData from ../../data/postData;
+import postData from '../../data/postData'
 import { combineReducers } from 'redux'
 
 const initialState = postData

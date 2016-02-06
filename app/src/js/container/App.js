@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Header from '../components/Header'
-import { Provider } from 'react-redux'
 import Nav from '../components/Nav'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import * as _ from 'lodash'
@@ -13,7 +12,7 @@ export default class App extends Component {
       currentRoute: ""
     }
   }
-  
+
   toggleNav(){
     this.setState({navShowing: !this.state.navShowing})
   }
@@ -30,20 +29,19 @@ export default class App extends Component {
           toggleNav: () => this.toggleNav,
           navShowing: this.state.navShowing,
           currentRoute: this.state.currentRoute,
-          setCurrentRoute: this.setCurrentRoute,
           key: _.uniqueId()
         })
       }
     )
     const { path } = this.props.route
     return (
-      <Provider store={store}>
+      <div>
         <Header toggleNav={() => this.toggleNav()} currentRoute={this.state.currentRoute} />
         <Nav categories={categories} navShowing={this.state.navShowing} toggleNav={() => this.toggleNav()}/>
         <ReactCSSTransitionGroup transitionName="slide" transitionAppear={true} transitionAppearTimeout={500} transitionEnterTimeout={500} transitionLeaveTimeout={500}>
           { childrenWithProps }
         </ReactCSSTransitionGroup>
-      </Provider>
+      </div>
     )
   }
 }
