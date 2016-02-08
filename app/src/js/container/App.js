@@ -9,16 +9,11 @@ export default class App extends Component {
     super()
     this.state = {
       navShowing: false,
-      currentRoute: ""
     }
   }
 
   toggleNav(){
     this.setState({navShowing: !this.state.navShowing})
-  }
-
-  setCurrentRoute(route){
-    this.setState({currentRoute: route})
   }
 
   render(){
@@ -28,7 +23,6 @@ export default class App extends Component {
         return React.cloneElement(child, {
           toggleNav: () => this.toggleNav,
           navShowing: this.state.navShowing,
-          currentRoute: this.state.currentRoute,
           key: _.uniqueId()
         })
       }
@@ -36,7 +30,7 @@ export default class App extends Component {
     const { path } = this.props.route
     return (
       <div>
-        <Header toggleNav={() => this.toggleNav()} currentRoute={this.state.currentRoute} />
+        <Header toggleNav={() => this.toggleNav()} currentRoute={this.props.location.pathname} />
         <Nav categories={categories} navShowing={this.state.navShowing} toggleNav={() => this.toggleNav()}/>
         <ReactCSSTransitionGroup transitionName="slide" transitionAppear={true} transitionAppearTimeout={500} transitionEnterTimeout={500} transitionLeaveTimeout={500}>
           { childrenWithProps }

@@ -40,8 +40,10 @@
     a{
       color: black;
     }
-    .currentRoute{
-      color: $grey;
+    &.current-route{
+      a{
+        color: red;
+      }
     }
   }
   .header-links:first-of-type{

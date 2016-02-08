@@ -5,19 +5,6 @@ import postData from '../../data/postData'
 import Isvg from 'react-inlinesvg'
 
 export default class ProjectList extends Component {
-  constructor(){
-    super();
-    this.state = {
-      hovering: null
-    }
-  }
-  mouseEnter(i){
-      console.log("i: ", i)
-      // this.setState({hovering: i});
-  }
-  mouseOut(){
-      this.setState({hovering: null});
-  }
   render(){
     const projects = postData
     const containerClasses = classNames({
@@ -26,14 +13,10 @@ export default class ProjectList extends Component {
       "offset": true,
       "closed": this.props.navShowing
     })
-    const projectLinkClasses = classNames({
-      "project-link-container": true,
-      "hovering": (this.state.hovering === this.props.id)
-    })
     const projectPreviews = projects.map((project, i) => {
       const inlineStyle = {backgroundImage: `url(${project.thumbnail})`}
       return (
-        <Link to={`projects/${project.id}`} className={projectLinkClasses} key={i}>
+        <Link to={`projects/${project.id}`} className="project-link-container" key={i}>
           <div className="project-thumbnail" style={inlineStyle}>
             <Isvg src="/images/arrow-right.svg">></Isvg>
           </div>
