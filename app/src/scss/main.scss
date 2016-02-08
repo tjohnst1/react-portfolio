@@ -27,6 +27,10 @@ body{
   @include transition(all 0.5s ease-in-out);
 }
 
+.offset{
+  padding: 12% 5% 0;
+}
+
 .closed{
   @include transform(translateX(100%));
 }

@@ -6,6 +6,7 @@ export default class Home extends Component {
     const containerClasses = classNames({
       "home-container": true,
       "fixed-container": true,
+      "offset": true,
       "closed": this.props.navShowing
     })
     return (

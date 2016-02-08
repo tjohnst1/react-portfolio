@@ -3,7 +3,7 @@
   position: absolute;
   width: 100%;
   margin: 0;
-  padding: 2% 0 0 10%;
+  padding: 2% 5% 0;
   z-index: $z-header
 }
 
@@ -28,13 +28,13 @@
   @include span-columns(6);
   text-align: right;
   .header-links{
-    @include span-columns(2);
+    @include span-columns(3);
     .currentRoute{
       color: $grey;
     }
   }
   .header-links:first-of-type{
-    @include shift(6);
+    @include shift(3);
   }
 }
 
