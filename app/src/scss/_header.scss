@@ -13,22 +13,33 @@
 }
 
 .header-logo-icon{
-  width: 50px;
+  width: 40px;
   position: relative;
   display: inline-block;
+  margin: 6px 0 0 0;
 }
 
-.header-logo-text{
+.header-logo{
+  font-size: 2em;
   display: inline-block;
-  vertical-align: bottom;
-  margin: 0 0 0 10px;
+  vertical-align: top;
+  color: black;
+  font-weight: 500;
+  margin: 5px 5px 0px 10px;
+  &.hover{
+    color: black;
+  }
 }
 
 .header-links-container{
   @include span-columns(6);
   text-align: right;
+  margin: 10px 0 0 0;
   .header-links{
     @include span-columns(3);
+    a{
+      color: black;
+    }
     .currentRoute{
       color: $grey;
     }
@@ -36,10 +47,6 @@
   .header-links:first-of-type{
     @include shift(3);
   }
-}
-
-.header-logo{
-  margin: 0;
 }
 
 .header-subheadding{

@@ -11,11 +11,10 @@ export default class Header extends Component {
     return (
       <div className="header-container">
         <div className="header-logo-container">
-          <a href="/"><Isvg src="/images/tj-logo.svg">Travis Johnston</Isvg></a>
-          <div className="header-logo-text">
+          <a href="/">
+            <Isvg src="/images/tj-logo.svg">Travis Johnston</Isvg>
             <h1 className="header-logo">Travis Johnston</h1>
-            <h2 className="header-subheading">Web Developer & Designer</h2>
-          </div>
+          </a>
         </div>
         <ul className="header-links-container">
           <li className={aboutClasses}><Link to="/about">About</Link></li>

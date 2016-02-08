@@ -2,6 +2,8 @@ $red: #E01717;
 $off-white: #F7F3F0;
 $grey: #EEEEEE;
 
+$summary: 1.4em;
+
 @import 'bourbon/bourbon',
         'neat/neat',
         'base/base',
@@ -17,8 +19,7 @@ $grey: #EEEEEE;
 
 body{
   margin: 0;
-  // font-family: "mic-32-new-web";
-  font-family: "schoolbook-web";
+  font-family: "prenton", sans-serif;
 }
 
 .fixed-container{
@@ -29,7 +30,7 @@ body{
 }
 
 .offset{
-  padding: 12% 5% 0;
+  padding: 10% 5% 0;
 }
 
 .closed{
