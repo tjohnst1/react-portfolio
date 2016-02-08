@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import classNames from 'classnames'
+import { Link } from 'react-router'
 
 export default class Home extends Component {
   render(){
@@ -11,7 +12,7 @@ export default class Home extends Component {
     })
     return (
       <div className={containerClasses}>
-        <p className="home-intro-text"><span className="underline">Travis</span> is a <span className="underline">front end developer</span> currently based in beautiful Portland, Oregon.</p>
+        <p className="home-intro-text"><Link className="underline" to="/about">Travis</Link> is a <Link className="underline" to="/projects">front end developer</Link> currently based in Portland, Oregon.</p>
         <button className="home-btn">Porfolio</button>
         <button className="home-btn">Contact</button>
       </div>

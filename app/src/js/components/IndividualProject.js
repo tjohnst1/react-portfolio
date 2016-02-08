@@ -6,28 +6,30 @@ import {findProject} from '../util/utilities'
 export default class IndividualProject extends Component {
   render(){
     const project = findProject(Number(this.props.params.projectId), postData)
-    const backgroundImg = {backgroundImage: `url(${project.thumbnail})`}
-    const projectImg = {backgroundImage: `url(${project.thumbnail})`}
+    const projectImg = {backgroundImage: `url(${project.images})`}
     const containerClasses = classNames({
       "project-container": true,
       "fixed-container": true,
-      "closed": this.props.navShowing
+      "closed": this.props.navShowing,
+      "offset": true,
     })
     return (
       <div className={containerClasses}>
-        <div className="project-image-container">
-          <div className="project-image" style={projectImg}></div>
-        </div>
         <div className="project-info">
-          <div className="project-heading">
-            <h1 className="project-title">{project.title}</h1>
-            <a href={project.link} className="project-launch-btn">Launch Project</a>
+          <h1 className="project-title">{project.title}</h1>
+          <div className="project-image-container">
+            <img className="project-image" src={project.images} alt={`${project.title} Image`}/>
           </div>
-          <p className="project-brief">{project.brief}</p>
-          <div className="project-metadata">
-            <p>Programming Languages: {project.languages.join(", ")}</p>
-            <p>Web Frameworks, Libraries, and Utilities: {project.libraries.join(", ")}</p>
-            <a href={project.github}>Source Code</a>
+          <div className="project-text">
+            <p className="project-brief">{project.brief}</p>
+            <div className="project-metadata">
+              <h4 className="project-metadata-type">Programming Languages</h4>
+              <p>{project.languages.join(", ")}</p>
+              <h4 className="project-metadata-type">Web Frameworks, Libraries, and Utilities</h4>
+              <p>{project.libraries.join(", ")}</p>
+            </div>
+            <a href={project.link} className="project-cta-btn">Launch Project</a>
+            <a href={project.github} className="project-cta-btn">Source Code</a>
           </div>
         </div>
       </div>
