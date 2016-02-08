@@ -24233,20 +24233,11 @@
 	              _reactInlinesvg2.default,
 	              { src: '/images/tj-logo.svg' },
 	              'Travis Johnston'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'header-logo-text' },
+	            ),
 	            _react2.default.createElement(
 	              'h1',
 	              { className: 'header-logo' },
 	              'Travis Johnston'
-	            ),
-	            _react2.default.createElement(
-	              'h2',
-	              { className: 'header-subheading' },
-	              'Web Developer & Designer'
 	            )
 	          )
 	        ),
@@ -40811,6 +40802,10 @@
 
 	var _postData2 = _interopRequireDefault(_postData);
 
+	var _reactInlinesvg = __webpack_require__(210);
+
+	var _reactInlinesvg2 = _interopRequireDefault(_reactInlinesvg);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -40825,23 +40820,51 @@
 	  function ProjectList() {
 	    _classCallCheck(this, ProjectList);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ProjectList).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ProjectList).call(this));
+
+	    _this.state = {
+	      hovering: null
+	    };
+	    return _this;
 	  }
 
 	  _createClass(ProjectList, [{
+	    key: 'mouseEnter',
+	    value: function mouseEnter(i) {
+	      console.log("id: ", i);
+	      this.setState({ hovering: i });
+	    }
+	  }, {
+	    key: 'mouseOut',
+	    value: function mouseOut() {
+	      this.setState({ hovering: null });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      var projects = _postData2.default;
 	      var containerClasses = (0, _classnames2.default)({
 	        "projects-container": true,
 	        "fixed-container": true,
+	        "offset": true,
 	        "closed": this.props.navShowing
+	      });
+	      var projectLinkClasses = (0, _classnames2.default)({
+	        "project-link-container": true,
+	        "hovering": this.state.hovering === this.props.id
 	      });
 	      var projectPreviews = projects.map(function (project, i) {
 	        var inlineStyle = { backgroundImage: 'url(' + project.thumbnail + ')' };
+	        console.log(i);
 	        return _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: 'projects/' + project.id, className: 'project-container-link', key: i },
+	          { to: 'projects/' + project.id, className: projectLinkClasses, key: i, id: i, onMouseEnter: function onMouseEnter(e, i) {
+	              return _this2.mouseEnter(i);
+	            }, onMouseOut: function onMouseOut() {
+	              return _this2.mouseOut;
+	            } },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'project-thumbnail', style: inlineStyle },
@@ -40849,6 +40872,11 @@
 	              'h3',
 	              { className: 'project-thumbnail-title' },
 	              project.title
+	            ),
+	            _react2.default.createElement(
+	              _reactInlinesvg2.default,
+	              { src: '/images/arrow-right.svg' },
+	              '>'
 	            )
 	          )
 	        );
@@ -40976,20 +41004,30 @@
 	        { className: containerClasses },
 	        _react2.default.createElement(
 	          'div',
+	          { className: 'project-image-container' },
+	          _react2.default.createElement('div', { className: 'project-image', style: projectImg })
+	        ),
+	        _react2.default.createElement(
+	          'div',
 	          { className: 'project-info' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'project-summary' },
+	            { className: 'project-heading' },
 	            _react2.default.createElement(
 	              'h1',
 	              { className: 'project-title' },
 	              project.title
 	            ),
 	            _react2.default.createElement(
-	              'p',
-	              { className: 'project-brief' },
-	              project.brief
+	              'a',
+	              { href: project.link, className: 'project-launch-btn' },
+	              'Launch Project'
 	            )
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            { className: 'project-brief' },
+	            project.brief
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -41005,26 +41043,12 @@
 	              null,
 	              'Web Frameworks, Libraries, and Utilities: ',
 	              project.libraries.join(", ")
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'project-action-btns' },
-	            _react2.default.createElement(
-	              'a',
-	              { href: project.link },
-	              'View Live Website'
 	            ),
 	            _react2.default.createElement(
 	              'a',
 	              { href: project.github },
 	              'Source Code'
 	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'project-image-container' },
-	            _react2.default.createElement('div', { className: 'project-image', style: projectImg })
 	          )
 	        )
 	      );
@@ -41095,6 +41119,7 @@
 	      var containerClasses = (0, _classnames2.default)({
 	        "home-container": true,
 	        "fixed-container": true,
+	        "offset": true,
 	        "closed": this.props.navShowing
 	      });
 	      return _react2.default.createElement(
@@ -41187,30 +41212,46 @@
 	    value: function render() {
 	      var containerClasses = (0, _classnames2.default)({
 	        "fixed-container": true,
-	        "closed": this.props.navShowing
+	        "offset": true,
+	        "closed": this.props.navShowing,
+	        "about-container": true
 	      });
 	      return _react2.default.createElement(
 	        'div',
 	        { className: containerClasses },
 	        _react2.default.createElement(
 	          'p',
-	          null,
+	          { className: 'about-summary' },
 	          'I am front end web developer with previous experience in graphic design and video post production. My interests, among others, include design, technology, and about how to express ideas creatively in the digital space.'
 	        ),
 	        _react2.default.createElement(
-	          'h3',
-	          null,
-	          'Skills'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Web Frameworks/Libraries/Applications: Ember.js, Gulp, Grunt, JavaScript, jQuery, React, Ruby, Ruby on Rails'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Applications: After Effects, Atom, Compressor, Excel, Final Cut Pro, Illustrator, InDesign, Photoshop, PowerPoint, Premiere'
+	          'div',
+	          { className: 'about-skills-container' },
+	          _react2.default.createElement(
+	            'h3',
+	            { className: 'about-skill-headline main' },
+	            'Skills'
+	          ),
+	          _react2.default.createElement(
+	            'h4',
+	            { className: 'about-skill-headline' },
+	            'Programming Languages/Frameworks/Libraries'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            { className: 'about-skill-set' },
+	            'Ember.js, Gulp, Grunt, JavaScript, jQuery, React, Ruby, Ruby on Rails'
+	          ),
+	          _react2.default.createElement(
+	            'h4',
+	            { className: 'about-skill-headline' },
+	            'Applications'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            { className: 'about-skill-set' },
+	            'After Effects, Atom, Compressor, Excel, Final Cut Pro, Illustrator, InDesign, Photoshop, PowerPoint, Premiere'
+	          )
 	        )
 	      );
 	    }
@@ -41271,14 +41312,16 @@
 	    value: function render() {
 	      var containerClasses = (0, _classnames2.default)({
 	        "fixed-container": true,
-	        "closed": this.props.navShowing
+	        "offset": true,
+	        "closed": this.props.navShowing,
+	        "contact-container": true
 	      });
 	      return _react2.default.createElement(
 	        'div',
 	        { className: containerClasses },
 	        _react2.default.createElement(
 	          'p',
-	          null,
+	          { className: 'contact-blurb' },
 	          'Do you have a project idea or just want to say hi? Feel free to reach out via e-mail or social media. I’ll try my best to get back to you promptly.'
 	        ),
 	        _react2.default.createElement(
