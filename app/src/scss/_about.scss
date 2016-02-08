@@ -1,0 +1,21 @@
+.about-summary{
+  font-size: 1.4em;
+}
+
+.about-skill-headline{
+  margin: 0 0 5px 0;
+  font-family: "prenton", sans-serif;
+  font-weight: 700;
+  &.main{
+    font-size: 0.8em;
+    color: $red;
+    margin: 0;
+  }
+}
+
+.about-skill-set{
+  margin: 0;
+  &:first-of-type{
+    margin: 0 0 15px 0
+  }
+}
