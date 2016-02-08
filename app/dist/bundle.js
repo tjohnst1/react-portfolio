@@ -58,9 +58,9 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _reactRedux = __webpack_require__(228);
+	var _reactRedux = __webpack_require__(243);
 
-	var _store = __webpack_require__(246);
+	var _store = __webpack_require__(261);
 
 	var _store2 = _interopRequireDefault(_store);
 
@@ -24028,23 +24028,23 @@
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _ProjectList = __webpack_require__(221);
+	var _ProjectList = __webpack_require__(236);
 
 	var _ProjectList2 = _interopRequireDefault(_ProjectList);
 
-	var _IndividualProject = __webpack_require__(223);
+	var _IndividualProject = __webpack_require__(238);
 
 	var _IndividualProject2 = _interopRequireDefault(_IndividualProject);
 
-	var _Home = __webpack_require__(225);
+	var _Home = __webpack_require__(240);
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _About = __webpack_require__(226);
+	var _About = __webpack_require__(241);
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _Contact = __webpack_require__(227);
+	var _Contact = __webpack_require__(242);
 
 	var _Contact2 = _interopRequireDefault(_Contact);
 
@@ -24083,15 +24083,15 @@
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _Nav = __webpack_require__(210);
+	var _Nav = __webpack_require__(225);
 
 	var _Nav2 = _interopRequireDefault(_Nav);
 
-	var _reactAddonsCssTransitionGroup = __webpack_require__(212);
+	var _reactAddonsCssTransitionGroup = __webpack_require__(227);
 
 	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
-	var _lodash = __webpack_require__(219);
+	var _lodash = __webpack_require__(234);
 
 	var _ = _interopRequireWildcard(_lodash);
 
@@ -24143,7 +24143,6 @@
 	          },
 	          navShowing: _this2.state.navShowing,
 	          currentRoute: _this2.state.currentRoute,
-	          setCurrentRoute: _this2.setCurrentRoute,
 	          key: _.uniqueId()
 	        });
 	      });
@@ -24194,6 +24193,10 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
+	var _reactInlinesvg = __webpack_require__(210);
+
+	var _reactInlinesvg2 = _interopRequireDefault(_reactInlinesvg);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24217,7 +24220,6 @@
 	      var aboutClasses = (0, _classnames2.default)({ "header-links": true, "current-route": this.props.currentRoute === "/about" });
 	      var contactClasses = (0, _classnames2.default)({ "header-links": true, "current-route": this.props.currentRoute === "/contact" });
 	      var projectsClasses = (0, _classnames2.default)({ "header-links": true, "current-route": this.props.currentRoute === "/projects" });
-	      console.log(this.props.currentRoute);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'header-container' },
@@ -24225,14 +24227,27 @@
 	          'div',
 	          { className: 'header-logo-container' },
 	          _react2.default.createElement(
-	            'h1',
-	            { className: 'header-logo' },
-	            'Travis Johnston'
+	            'a',
+	            { href: '/' },
+	            _react2.default.createElement(
+	              _reactInlinesvg2.default,
+	              { src: '/images/tj-logo.svg' },
+	              'Travis Johnston'
+	            )
 	          ),
 	          _react2.default.createElement(
-	            'h2',
-	            { className: 'header-subheading' },
-	            'Web Developer & Designer'
+	            'div',
+	            { className: 'header-logo-text' },
+	            _react2.default.createElement(
+	              'h1',
+	              { className: 'header-logo' },
+	              'Travis Johnston'
+	            ),
+	            _react2.default.createElement(
+	              'h2',
+	              { className: 'header-subheading' },
+	              'Web Developer & Designer'
+	            )
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -24333,6 +24348,947 @@
 /* 210 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var InlineSVGError, PropTypes, React, Status, configurationError, createError, delay, getHash, http, httpplease, ieXDomain, isSupportedEnvironment, me, once, span, supportsInlineSVG, uniquifyIDs, unsupportedBrowserError,
+	  __slice = [].slice,
+	  __hasProp = {}.hasOwnProperty,
+	  __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+	React = __webpack_require__(1);
+
+	once = __webpack_require__(211);
+
+	httpplease = __webpack_require__(213);
+
+	ieXDomain = __webpack_require__(223);
+
+	PropTypes = React.PropTypes;
+
+	span = React.DOM.span;
+
+	http = httpplease.use(ieXDomain);
+
+	Status = {
+	  PENDING: 'pending',
+	  LOADING: 'loading',
+	  LOADED: 'loaded',
+	  FAILED: 'failed',
+	  UNSUPPORTED: 'unsupported'
+	};
+
+	supportsInlineSVG = once(function() {
+	  var div;
+	  if (!document) {
+	    return false;
+	  }
+	  div = document.createElement('div');
+	  div.innerHTML = '<svg />';
+	  return div.firstChild && div.firstChild.namespaceURI === 'http://www.w3.org/2000/svg';
+	});
+
+	delay = function(fn) {
+	  return function() {
+	    var args, newFunc;
+	    args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+	    newFunc = function() {
+	      return fn.apply(null, args);
+	    };
+	    setTimeout(newFunc, 0);
+	  };
+	};
+
+	isSupportedEnvironment = once(function() {
+	  return ((typeof window !== "undefined" && window !== null ? window.XMLHttpRequest : void 0) || (typeof window !== "undefined" && window !== null ? window.XDomainRequest : void 0)) && supportsInlineSVG();
+	});
+
+	uniquifyIDs = (function() {
+	  var idPattern, mkAttributePattern;
+	  mkAttributePattern = function(attr) {
+	    return "(?:(?:\\s|\\:)" + attr + ")";
+	  };
+	  idPattern = RegExp("(?:(" + (mkAttributePattern('id')) + ")=\"([^\"]+)\")|(?:(" + (mkAttributePattern('href')) + "|" + (mkAttributePattern('role')) + "|" + (mkAttributePattern('arcrole')) + ")=\"\\#([^\"]+)\")|(?:=\"url\\(\\#([^\\)]+)\\)\")", "g");
+	  return function(svgText, svgID) {
+	    var uniquifyID;
+	    uniquifyID = function(id) {
+	      return "" + id + "___" + svgID;
+	    };
+	    return svgText.replace(idPattern, function(m, p1, p2, p3, p4, p5) {
+	      if (p2) {
+	        return "" + p1 + "=\"" + (uniquifyID(p2)) + "\"";
+	      } else if (p4) {
+	        return "" + p3 + "=\"#" + (uniquifyID(p4)) + "\"";
+	      } else if (p5) {
+	        return "=\"url(#" + (uniquifyID(p5)) + ")\"";
+	      }
+	    });
+	  };
+	})();
+
+	getHash = function(str) {
+	  var chr, hash, i, _i, _ref;
+	  hash = 0;
+	  if (!str) {
+	    return hash;
+	  }
+	  for (i = _i = 0, _ref = str.length; 0 <= _ref ? _i < _ref : _i > _ref; i = 0 <= _ref ? ++_i : --_i) {
+	    chr = str.charCodeAt(i);
+	    hash = (hash << 5) - hash + chr;
+	    hash = hash & hash;
+	  }
+	  return hash;
+	};
+
+	InlineSVGError = (function(_super) {
+	  __extends(InlineSVGError, _super);
+
+	  InlineSVGError.prototype.name = 'InlineSVGError';
+
+	  InlineSVGError.prototype.isSupportedBrowser = true;
+
+	  InlineSVGError.prototype.isConfigurationError = false;
+
+	  InlineSVGError.prototype.isUnsupportedBrowserError = false;
+
+	  function InlineSVGError(message) {
+	    this.message = message;
+	  }
+
+	  return InlineSVGError;
+
+	})(Error);
+
+	createError = function(message, attrs) {
+	  var err, k, v;
+	  err = new InlineSVGError(message);
+	  for (k in attrs) {
+	    if (!__hasProp.call(attrs, k)) continue;
+	    v = attrs[k];
+	    err[k] = v;
+	  }
+	  return err;
+	};
+
+	unsupportedBrowserError = function(message) {
+	  if (message == null) {
+	    message = 'Unsupported Browser';
+	  }
+	  return createError(message, {
+	    isSupportedBrowser: false,
+	    isUnsupportedBrowserError: true
+	  });
+	};
+
+	configurationError = function(message) {
+	  return createError(message, {
+	    isConfigurationError: true
+	  });
+	};
+
+	module.exports = me = React.createClass({
+	  statics: {
+	    Status: Status
+	  },
+	  displayName: 'InlineSVG',
+	  propTypes: {
+	    wrapper: PropTypes.func,
+	    src: PropTypes.string.isRequired,
+	    className: PropTypes.string,
+	    preloader: PropTypes.func,
+	    onLoad: PropTypes.func,
+	    onError: PropTypes.func,
+	    supportTest: PropTypes.func,
+	    uniquifyIDs: PropTypes.bool
+	  },
+	  getDefaultProps: function() {
+	    return {
+	      wrapper: span,
+	      supportTest: isSupportedEnvironment,
+	      uniquifyIDs: true
+	    };
+	  },
+	  getInitialState: function() {
+	    return {
+	      status: Status.PENDING
+	    };
+	  },
+	  componentDidMount: function() {
+	    if (this.state.status !== Status.PENDING) {
+	      return;
+	    }
+	    if (this.props.supportTest()) {
+	      if (this.props.src) {
+	        return this.setState({
+	          status: Status.LOADING
+	        }, this.load);
+	      } else {
+	        return delay((function(_this) {
+	          return function() {
+	            return _this.fail(configurationError('Missing source'));
+	          };
+	        })(this))();
+	      }
+	    } else {
+	      return delay((function(_this) {
+	        return function() {
+	          return _this.fail(unsupportedBrowserError());
+	        };
+	      })(this))();
+	    }
+	  },
+	  fail: function(error) {
+	    var status;
+	    status = error.isUnsupportedBrowserError ? Status.UNSUPPORTED : Status.FAILED;
+	    return this.setState({
+	      status: status
+	    }, (function(_this) {
+	      return function() {
+	        var _base;
+	        return typeof (_base = _this.props).onError === "function" ? _base.onError(error) : void 0;
+	      };
+	    })(this));
+	  },
+	  handleLoad: function(err, res) {
+	    if (err) {
+	      return this.fail(err);
+	    }
+	    if (!this.isMounted()) {
+	      return;
+	    }
+	    return this.setState({
+	      loadedText: res.text,
+	      status: Status.LOADED
+	    }, (function(_this) {
+	      return function() {
+	        var _base;
+	        return typeof (_base = _this.props).onLoad === "function" ? _base.onLoad() : void 0;
+	      };
+	    })(this));
+	  },
+	  load: function() {
+	    var m, text;
+	    if (m = this.props.src.match(/data:image\/svg[^,]*?(;base64)?,(.*)/)) {
+	      text = m[1] ? atob(m[2]) : decodeURIComponent(m[2]);
+	      return this.handleLoad(null, {
+	        text: text
+	      });
+	    } else {
+	      return http.get(this.props.src, this.handleLoad);
+	    }
+	  },
+	  getClassName: function() {
+	    var className;
+	    className = "isvg " + this.state.status;
+	    if (this.props.className) {
+	      className += " " + this.props.className;
+	    }
+	    return className;
+	  },
+	  render: function() {
+	    return this.props.wrapper({
+	      className: this.getClassName(),
+	      dangerouslySetInnerHTML: this.state.loadedText ? {
+	        __html: this.processSVG(this.state.loadedText)
+	      } : void 0
+	    }, this.renderContents());
+	  },
+	  processSVG: function(svgText) {
+	    if (this.props.uniquifyIDs) {
+	      return uniquifyIDs(svgText, getHash(this.props.src));
+	    } else {
+	      return svgText;
+	    }
+	  },
+	  renderContents: function() {
+	    switch (this.state.status) {
+	      case Status.UNSUPPORTED:
+	        return this.props.children;
+	      case Status.PENDING:
+	      case Status.LOADING:
+	        if (this.props.preloader) {
+	          return new this.props.preloader;
+	        }
+	    }
+	  }
+	});
+
+
+/***/ },
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var wrappy = __webpack_require__(212)
+	module.exports = wrappy(once)
+
+	once.proto = once(function () {
+	  Object.defineProperty(Function.prototype, 'once', {
+	    value: function () {
+	      return once(this)
+	    },
+	    configurable: true
+	  })
+	})
+
+	function once (fn) {
+	  var f = function () {
+	    if (f.called) return f.value
+	    f.called = true
+	    return f.value = fn.apply(this, arguments)
+	  }
+	  f.called = false
+	  return f
+	}
+
+
+/***/ },
+/* 212 */
+/***/ function(module, exports) {
+
+	// Returns a wrapper function that returns a wrapped callback
+	// The wrapper function should do some stuff, and return a
+	// presumably different callback function.
+	// This makes sure that own properties are retained, so that
+	// decorations and such are not lost along the way.
+	module.exports = wrappy
+	function wrappy (fn, cb) {
+	  if (fn && cb) return wrappy(fn)(cb)
+
+	  if (typeof fn !== 'function')
+	    throw new TypeError('need wrapper function')
+
+	  Object.keys(fn).forEach(function (k) {
+	    wrapper[k] = fn[k]
+	  })
+
+	  return wrapper
+
+	  function wrapper() {
+	    var args = new Array(arguments.length)
+	    for (var i = 0; i < args.length; i++) {
+	      args[i] = arguments[i]
+	    }
+	    var ret = fn.apply(this, args)
+	    var cb = args[args.length-1]
+	    if (typeof ret === 'function' && ret !== cb) {
+	      Object.keys(cb).forEach(function (k) {
+	        ret[k] = cb[k]
+	      })
+	    }
+	    return ret
+	  }
+	}
+
+
+/***/ },
+/* 213 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var
+	  cleanURL = __webpack_require__(214),
+	  XHR = __webpack_require__(215),
+	  delay = __webpack_require__(216),
+	  RequestError = __webpack_require__(217),
+	  Response = __webpack_require__(218),
+	  Request = __webpack_require__(219),
+	  extend = __webpack_require__(221),
+	  once = __webpack_require__(222);
+
+	var i,
+	    createError = RequestError.create;
+
+	function factory(defaults, plugins) {
+	  defaults = defaults || {};
+	  plugins = plugins || [];
+
+	  function http(req, cb) {
+	    var xhr, plugin, done, k, timeoutId, supportsLoadAndErrorEvents;
+
+	    req = new Request(extend(defaults, req));
+
+	    for (i = 0; i < plugins.length; i++) {
+	      plugin = plugins[i];
+	      if (plugin.processRequest) {
+	        plugin.processRequest(req);
+	      }
+	    }
+
+	    // Give the plugins a chance to create the XHR object
+	    for (i = 0; i < plugins.length; i++) {
+	      plugin = plugins[i];
+	      if (plugin.createXHR) {
+	        xhr = plugin.createXHR(req);
+	        break; // First come, first serve
+	      }
+	    }
+	    xhr = xhr || new XHR();
+
+	    req.xhr = xhr;
+
+	    // Use a single completion callback. This can be called with or without
+	    // an error. If no error is passed, the request will be examined to see
+	    // if it was successful.
+	    done = once(delay(function(rawError) {
+	      clearTimeout(timeoutId);
+	      xhr.onload = xhr.onerror = xhr.onabort = xhr.onreadystatechange = xhr.ontimeout = xhr.onprogress = null;
+
+	      var err = getError(req, rawError);
+
+	      var res = err || Response.fromRequest(req);
+	      for (i = 0; i < plugins.length; i++) {
+	        plugin = plugins[i];
+	        if (plugin.processResponse) {
+	          plugin.processResponse(res);
+	        }
+	      }
+
+	      // Invoke callbacks
+	      if (err && req.onerror) req.onerror(err);
+	      if (!err && req.onload) req.onload(res);
+	      if (cb) cb(err, err ? undefined : res);
+
+	    }));
+
+	    supportsLoadAndErrorEvents = ('onload' in xhr) && ('onerror' in xhr);
+	    xhr.onload = function() { done(); };
+	    xhr.onerror = done;
+	    xhr.onabort = function() { done(); };
+
+	    // We'd rather use `onload`, `onerror`, and `onabort` since they're the
+	    // only way to reliably detect successes and failures but, if they
+	    // aren't available, we fall back to using `onreadystatechange`.
+	    xhr.onreadystatechange = function() {
+	      if (xhr.readyState !== 4) return;
+
+	      if (req.aborted) return done();
+
+	      if (!supportsLoadAndErrorEvents) {
+	        // Assume a status of 0 is an error. This could be a false
+	        // positive, but there's no way to tell when using
+	        // `onreadystatechange` ):
+	        // See matthewwithanm/react-inlinesvg#10.
+
+	        // Some browsers don't like you reading XHR properties when the
+	        // XHR has been aborted. In case we've gotten here as a result
+	        // of that (either our calling `about()` in the timeout handler
+	        // or the user calling it directly even though they shouldn't),
+	        // be careful about accessing it.
+	        var status;
+	        try {
+	          status = xhr.status;
+	        } catch (err) {}
+	        var err = status === 0 ? new Error('Internal XHR Error') : null;
+	        return done(err);
+	      }
+	    };
+
+	    // IE sometimes fails if you don't specify every handler.
+	    // See http://social.msdn.microsoft.com/Forums/ie/en-US/30ef3add-767c-4436-b8a9-f1ca19b4812e/ie9-rtm-xdomainrequest-issued-requests-may-abort-if-all-event-handlers-not-specified?forum=iewebdevelopment
+	    xhr.ontimeout = function() { /* noop */ };
+	    xhr.onprogress = function() { /* noop */ };
+
+	    xhr.open(req.method, req.url);
+
+	    if (req.timeout) {
+	      // If we use the normal XHR timeout mechanism (`xhr.timeout` and
+	      // `xhr.ontimeout`), `onreadystatechange` will be triggered before
+	      // `ontimeout`. There's no way to recognize that it was triggered by
+	      // a timeout, and we'd be unable to dispatch the right error.
+	      timeoutId = setTimeout(function() {
+	        req.timedOut = true;
+	        done();
+	        try {
+	          xhr.abort();
+	        } catch (err) {}
+	      }, req.timeout);
+	    }
+
+	    for (k in req.headers) {
+	      if (req.headers.hasOwnProperty(k)) {
+	        xhr.setRequestHeader(k, req.headers[k]);
+	      }
+	    }
+
+	    xhr.send(req.body);
+
+	    return req;
+	  }
+
+	  var method,
+	    methods = ['get', 'post', 'put', 'head', 'patch', 'delete'],
+	    verb = function(method) {
+	      return function(req, cb) {
+	        req = new Request(req);
+	        req.method = method;
+	        return http(req, cb);
+	      };
+	    };
+	  for (i = 0; i < methods.length; i++) {
+	    method = methods[i];
+	    http[method] = verb(method);
+	  }
+
+	  http.plugins = function() {
+	    return plugins;
+	  };
+
+	  http.defaults = function(newValues) {
+	    if (newValues) {
+	      return factory(extend(defaults, newValues), plugins);
+	    }
+	    return defaults;
+	  };
+
+	  http.use = function() {
+	    var newPlugins = Array.prototype.slice.call(arguments, 0);
+	    return factory(defaults, plugins.concat(newPlugins));
+	  };
+
+	  http.bare = function() {
+	    return factory();
+	  };
+
+	  http.Request = Request;
+	  http.Response = Response;
+	  http.RequestError = RequestError;
+
+	  return http;
+	}
+
+	module.exports = factory({}, [cleanURL]);
+
+	/**
+	 * Analyze the request to see if it represents an error. If so, return it! An
+	 * original error object can be passed as a hint.
+	 */
+	function getError(req, err) {
+	  if (req.aborted) return createError('Request aborted', req, {name: 'Abort'});
+
+	  if (req.timedOut) return createError('Request timeout', req, {name: 'Timeout'});
+
+	  var xhr = req.xhr;
+	  var type = Math.floor(xhr.status / 100);
+
+	  var kind;
+	  switch (type) {
+	    case 0:
+	    case 2:
+	      // These don't represent errors unless the function was passed an
+	      // error object explicitly.
+	      if (!err) return;
+	      return createError(err.message, req);
+	    case 4:
+	      // Sometimes 4XX statuses aren't errors.
+	      if (xhr.status === 404 && !req.errorOn404) return;
+	      kind = 'Client';
+	      break;
+	    case 5:
+	      kind = 'Server';
+	      break;
+	    default:
+	      kind = 'HTTP';
+	  }
+	  var msg = kind + ' Error: ' +
+	        'The server returned a status of ' + xhr.status +
+	        ' for the request "' +
+	        req.method.toUpperCase() + ' ' + req.url + '"';
+	  return createError(msg, req);
+	}
+
+
+/***/ },
+/* 214 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = {
+	  processRequest: function(req) {
+	    req.url = req.url.replace(/[^%]+/g, function(s) {
+	      return encodeURI(s);
+	    });
+	  }
+	};
+
+
+/***/ },
+/* 215 */
+/***/ function(module, exports) {
+
+	module.exports = window.XMLHttpRequest;
+
+
+/***/ },
+/* 216 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	// Wrap a function in a `setTimeout` call. This is used to guarantee async
+	// behavior, which can avoid unexpected errors.
+
+	module.exports = function(fn) {
+	  return function() {
+	    var
+	      args = Array.prototype.slice.call(arguments, 0),
+	      newFunc = function() {
+	        return fn.apply(null, args);
+	      };
+	    setTimeout(newFunc, 0);
+	  };
+	};
+
+
+/***/ },
+/* 217 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var Response = __webpack_require__(218);
+	var extractResponseProps = __webpack_require__(220);
+	var extend = __webpack_require__(221);
+
+	function RequestError(message, props) {
+	  var err = new Error(message);
+	  err.name = 'RequestError';
+	  this.name = err.name;
+	  this.message = err.message;
+	  if (err.stack) {
+	    this.stack = err.stack;
+	  }
+
+	  this.toString = function() {
+	    return this.message;
+	  };
+
+	  for (var k in props) {
+	    if (props.hasOwnProperty(k)) {
+	      this[k] = props[k];
+	    }
+	  }
+	}
+
+	RequestError.prototype = extend(Error.prototype);
+	RequestError.prototype.constructor = RequestError;
+
+	RequestError.create = function(message, req, props) {
+	  var err = new RequestError(message, props);
+	  Response.call(err, extractResponseProps(req));
+	  return err;
+	};
+
+	module.exports = RequestError;
+
+
+/***/ },
+/* 218 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var Request = __webpack_require__(219);
+	var extractResponseProps = __webpack_require__(220);
+
+	function Response(props) {
+	  this.request = props.request;
+	  this.xhr = props.xhr;
+	  this.headers = props.headers || {};
+	  this.status = props.status || 0;
+	  this.text = props.text;
+	  this.body = props.body;
+	  this.contentType = props.contentType;
+	  this.isHttpError = props.status >= 400;
+	}
+
+	Response.prototype.header = Request.prototype.header;
+
+	Response.fromRequest = function(req) {
+	  return new Response(extractResponseProps(req));
+	};
+
+
+	module.exports = Response;
+
+
+/***/ },
+/* 219 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	function Request(optsOrUrl) {
+	  var opts = typeof optsOrUrl === 'string' ? {url: optsOrUrl} : optsOrUrl || {};
+	  this.method = opts.method ? opts.method.toUpperCase() : 'GET';
+	  this.url = opts.url;
+	  this.headers = opts.headers || {};
+	  this.body = opts.body;
+	  this.timeout = opts.timeout || 0;
+	  this.errorOn404 = opts.errorOn404 != null ? opts.errorOn404 : true;
+	  this.onload = opts.onload;
+	  this.onerror = opts.onerror;
+	}
+
+	Request.prototype.abort = function() {
+	  if (this.aborted) return;
+	  this.aborted = true;
+	  this.xhr.abort();
+	  return this;
+	};
+
+	Request.prototype.header = function(name, value) {
+	  var k;
+	  for (k in this.headers) {
+	    if (this.headers.hasOwnProperty(k)) {
+	      if (name.toLowerCase() === k.toLowerCase()) {
+	        if (arguments.length === 1) {
+	          return this.headers[k];
+	        }
+
+	        delete this.headers[k];
+	        break;
+	      }
+	    }
+	  }
+	  if (value != null) {
+	    this.headers[name] = value;
+	    return value;
+	  }
+	};
+
+
+	module.exports = Request;
+
+
+/***/ },
+/* 220 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var extend = __webpack_require__(221);
+
+	module.exports = function(req) {
+	  var xhr = req.xhr;
+	  var props = {request: req, xhr: xhr};
+
+	  // Try to create the response from the request. If the request was aborted,
+	  // accesssing properties of the XHR may throw an error, so we wrap in a
+	  // try/catch.
+	  try {
+	    var lines, i, m, headers = {};
+	    if (xhr.getAllResponseHeaders) {
+	      lines = xhr.getAllResponseHeaders().split('\n');
+	      for (i = 0; i < lines.length; i++) {
+	        if ((m = lines[i].match(/\s*([^\s]+):\s+([^\s]+)/))) {
+	          headers[m[1]] = m[2];
+	        }
+	      }
+	    }
+
+	    props = extend(props, {
+	      status: xhr.status,
+	      contentType: xhr.contentType || (xhr.getResponseHeader && xhr.getResponseHeader('Content-Type')),
+	      headers: headers,
+	      text: xhr.responseText,
+	      body: xhr.response || xhr.responseText
+	    });
+	  } catch (err) {}
+
+	  return props;
+	};
+
+
+/***/ },
+/* 221 */
+/***/ function(module, exports) {
+
+	module.exports = extend
+
+	function extend() {
+	    var target = {}
+
+	    for (var i = 0; i < arguments.length; i++) {
+	        var source = arguments[i]
+
+	        for (var key in source) {
+	            if (source.hasOwnProperty(key)) {
+	                target[key] = source[key]
+	            }
+	        }
+	    }
+
+	    return target
+	}
+
+
+/***/ },
+/* 222 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	// A "once" utility.
+	module.exports = function(fn) {
+	  var result, called = false;
+	  return function() {
+	    if (!called) {
+	      called = true;
+	      result = fn.apply(this, arguments);
+	    }
+	    return result;
+	  };
+	};
+
+
+/***/ },
+/* 223 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var
+	  urllite = __webpack_require__(224),
+	  once = __webpack_require__(222);
+
+	var warningShown = false;
+
+	var supportsXHR = once(function() {
+	  return (
+	    typeof window !== 'undefined' &&
+	    window !== null &&
+	    window.XMLHttpRequest &&
+	    'withCredentials' in new window.XMLHttpRequest()
+	  );
+	});
+
+	// This plugin creates a Microsoft `XDomainRequest` in supporting browsers when
+	// the URL being requested is on a different domain. This is necessary to
+	// support IE9, which only supports CORS via its proprietary `XDomainRequest`
+	// object. We need to check the URL because `XDomainRequest` *doesn't* work for
+	// same domain requests (unless your server sends CORS headers).
+	// `XDomainRequest` also has other limitations (no custom headers), so we try to
+	// catch those and error.
+	module.exports = {
+	  createXHR: function(req) {
+	    var a, b, k;
+
+	    if (typeof window === 'undefined' || window === null) {
+	      return;
+	    }
+
+	    a = urllite(req.url);
+	    b = urllite(window.location.href);
+
+	    // Don't do anything for same-domain requests.
+	    if (!a.host) {
+	      return;
+	    }
+	    if (a.protocol === b.protocol && a.host === b.host && a.port === b.port) {
+	      return;
+	    }
+
+	    // Show a warning if there are custom headers. We do this even in
+	    // browsers that won't use XDomainRequest so that users know there's an
+	    // issue right away, instead of if/when they test in IE9.
+	    if (!warningShown && req.headers) {
+	      for (k in req.headers) {
+	        if (req.headers.hasOwnProperty(k)) {
+	          warningShown = true;
+	          if (window && window.console && window.console.warn) {
+	            window.console.warn('Request headers are ignored in old IE when using the oldiexdomain plugin.');
+	          }
+	          break;
+	        }
+	      }
+	    }
+
+	    // Don't do anything if we can't do anything (:
+	    // Don't do anything if the browser supports proper XHR.
+	    if (window.XDomainRequest && !supportsXHR()) {
+	      // We've come this far. Might as well make an XDomainRequest.
+	      var xdr = new window.XDomainRequest();
+	      xdr.setRequestHeader = function() {}; // Ignore request headers.
+	      return xdr;
+	    }
+	  }
+	};
+
+
+/***/ },
+/* 224 */
+/***/ function(module, exports) {
+
+	(function() {
+	  var URL, URL_PATTERN, defaults, urllite,
+	    __hasProp = {}.hasOwnProperty;
+
+	  URL_PATTERN = /^(?:(?:([^:\/?\#]+:)\/+|(\/\/))(?:([a-z0-9-\._~%]+)(?::([a-z0-9-\._~%]+))?@)?(([a-z0-9-\._~%!$&'()*+,;=]+)(?::([0-9]+))?)?)?([^?\#]*?)(\?[^\#]*)?(\#.*)?$/;
+
+	  urllite = function(raw, opts) {
+	    return urllite.URL.parse(raw, opts);
+	  };
+
+	  urllite.URL = URL = (function() {
+	    function URL(props) {
+	      var k, v, _ref;
+	      for (k in defaults) {
+	        if (!__hasProp.call(defaults, k)) continue;
+	        v = defaults[k];
+	        this[k] = (_ref = props[k]) != null ? _ref : v;
+	      }
+	      this.host || (this.host = this.hostname && this.port ? "" + this.hostname + ":" + this.port : this.hostname ? this.hostname : '');
+	      this.origin || (this.origin = this.protocol ? "" + this.protocol + "//" + this.host : '');
+	      this.isAbsolutePathRelative = !this.host && this.pathname.charAt(0) === '/';
+	      this.isPathRelative = !this.host && this.pathname.charAt(0) !== '/';
+	      this.isRelative = this.isSchemeRelative || this.isAbsolutePathRelative || this.isPathRelative;
+	      this.isAbsolute = !this.isRelative;
+	    }
+
+	    URL.parse = function(raw) {
+	      var m, pathname, protocol;
+	      m = raw.toString().match(URL_PATTERN);
+	      pathname = m[8] || '';
+	      protocol = m[1];
+	      return new urllite.URL({
+	        protocol: protocol,
+	        username: m[3],
+	        password: m[4],
+	        hostname: m[6],
+	        port: m[7],
+	        pathname: protocol && pathname.charAt(0) !== '/' ? "/" + pathname : pathname,
+	        search: m[9],
+	        hash: m[10],
+	        isSchemeRelative: m[2] != null
+	      });
+	    };
+
+	    return URL;
+
+	  })();
+
+	  defaults = {
+	    protocol: '',
+	    username: '',
+	    password: '',
+	    host: '',
+	    hostname: '',
+	    port: '',
+	    pathname: '',
+	    search: '',
+	    hash: '',
+	    origin: '',
+	    isSchemeRelative: false
+	  };
+
+	  module.exports = urllite;
+
+	}).call(this);
+
+
+/***/ },
+/* 225 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -24347,7 +25303,7 @@
 
 	var _reactRouter = __webpack_require__(159);
 
-	var _basicInfo = __webpack_require__(211);
+	var _basicInfo = __webpack_require__(226);
 
 	var _basicInfo2 = _interopRequireDefault(_basicInfo);
 
@@ -24444,7 +25400,7 @@
 	exports.default = Nav;
 
 /***/ },
-/* 211 */
+/* 226 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -24462,13 +25418,13 @@
 	exports.default = basicInfo;
 
 /***/ },
-/* 212 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(213);
+	module.exports = __webpack_require__(228);
 
 /***/ },
-/* 213 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24489,8 +25445,8 @@
 
 	var assign = __webpack_require__(39);
 
-	var ReactTransitionGroup = __webpack_require__(214);
-	var ReactCSSTransitionGroupChild = __webpack_require__(216);
+	var ReactTransitionGroup = __webpack_require__(229);
+	var ReactCSSTransitionGroupChild = __webpack_require__(231);
 
 	function createTransitionTimeoutPropValidator(transitionType) {
 	  var timeoutPropName = 'transition' + transitionType + 'Timeout';
@@ -24556,7 +25512,7 @@
 	module.exports = ReactCSSTransitionGroup;
 
 /***/ },
-/* 214 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24573,7 +25529,7 @@
 	'use strict';
 
 	var React = __webpack_require__(2);
-	var ReactTransitionChildMapping = __webpack_require__(215);
+	var ReactTransitionChildMapping = __webpack_require__(230);
 
 	var assign = __webpack_require__(39);
 	var emptyFunction = __webpack_require__(15);
@@ -24766,7 +25722,7 @@
 	module.exports = ReactTransitionGroup;
 
 /***/ },
-/* 215 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24869,7 +25825,7 @@
 	module.exports = ReactTransitionChildMapping;
 
 /***/ },
-/* 216 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24889,8 +25845,8 @@
 	var React = __webpack_require__(2);
 	var ReactDOM = __webpack_require__(3);
 
-	var CSSCore = __webpack_require__(217);
-	var ReactTransitionEvents = __webpack_require__(218);
+	var CSSCore = __webpack_require__(232);
+	var ReactTransitionEvents = __webpack_require__(233);
 
 	var onlyChild = __webpack_require__(156);
 
@@ -25039,7 +25995,7 @@
 	module.exports = ReactCSSTransitionGroupChild;
 
 /***/ },
-/* 217 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25142,7 +26098,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 218 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -25256,7 +26212,7 @@
 	module.exports = ReactTransitionEvents;
 
 /***/ },
-/* 219 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/**
@@ -39811,10 +40767,10 @@
 	  }
 	}.call(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(220)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(235)(module), (function() { return this; }())))
 
 /***/ },
-/* 220 */
+/* 235 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -39830,7 +40786,7 @@
 
 
 /***/ },
-/* 221 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39851,7 +40807,7 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _postData = __webpack_require__(222);
+	var _postData = __webpack_require__(237);
 
 	var _postData2 = _interopRequireDefault(_postData);
 
@@ -39911,7 +40867,7 @@
 	exports.default = ProjectList;
 
 /***/ },
-/* 222 */
+/* 237 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -39962,7 +40918,7 @@
 	}];
 
 /***/ },
-/* 223 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -39981,11 +40937,11 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _postData = __webpack_require__(222);
+	var _postData = __webpack_require__(237);
 
 	var _postData2 = _interopRequireDefault(_postData);
 
-	var _utilities = __webpack_require__(224);
+	var _utilities = __webpack_require__(239);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -40081,7 +41037,7 @@
 	exports.default = IndividualProject;
 
 /***/ },
-/* 224 */
+/* 239 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -40097,7 +41053,7 @@
 	}
 
 /***/ },
-/* 225 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40134,11 +41090,6 @@
 	  }
 
 	  _createClass(Home, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      this.props.setCurrentRoute(this.props.location.pathname);
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var containerClasses = (0, _classnames2.default)({
@@ -40185,7 +41136,7 @@
 	exports.default = Home;
 
 /***/ },
-/* 226 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40204,11 +41155,11 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _basicInfo = __webpack_require__(211);
+	var _basicInfo = __webpack_require__(226);
 
 	var _basicInfo2 = _interopRequireDefault(_basicInfo);
 
-	var _lodash = __webpack_require__(219);
+	var _lodash = __webpack_require__(234);
 
 	var _ = _interopRequireWildcard(_lodash);
 
@@ -40232,11 +41183,6 @@
 	  }
 
 	  _createClass(About, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      this.props.setCurrentRoute(this.props.location.pathname);
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var containerClasses = (0, _classnames2.default)({
@@ -40276,7 +41222,7 @@
 	exports.default = About;
 
 /***/ },
-/* 227 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40295,9 +41241,13 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _basicInfo = __webpack_require__(211);
+	var _basicInfo = __webpack_require__(226);
 
 	var _basicInfo2 = _interopRequireDefault(_basicInfo);
+
+	var _reactInlinesvg = __webpack_require__(210);
+
+	var _reactInlinesvg2 = _interopRequireDefault(_reactInlinesvg);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -40317,11 +41267,6 @@
 	  }
 
 	  _createClass(Contact, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      this.props.setCurrentRoute(this.props.location.pathname);
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var containerClasses = (0, _classnames2.default)({
@@ -40342,17 +41287,44 @@
 	          _react2.default.createElement(
 	            'li',
 	            null,
-	            _basicInfo2.default.email
+	            _react2.default.createElement(
+	              'a',
+	              { href: _basicInfo2.default.email },
+	              _react2.default.createElement(
+	                _reactInlinesvg2.default,
+	                { src: '/images/email.svg' },
+	                'E-mail: '
+	              ),
+	              _basicInfo2.default.email
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'li',
 	            null,
-	            _basicInfo2.default.linkedin
+	            _react2.default.createElement(
+	              'a',
+	              { href: _basicInfo2.default.linkedin },
+	              _react2.default.createElement(
+	                _reactInlinesvg2.default,
+	                { src: '/images/linkedin.svg' },
+	                'LinkedIn: '
+	              ),
+	              _basicInfo2.default.linkedin
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'li',
 	            null,
-	            _basicInfo2.default.github
+	            _react2.default.createElement(
+	              'a',
+	              { href: _basicInfo2.default.github },
+	              _react2.default.createElement(
+	                _reactInlinesvg2.default,
+	                { src: '/images/github.svg' },
+	                'Github: '
+	              ),
+	              _basicInfo2.default.github
+	            )
 	          )
 	        )
 	      );
@@ -40365,18 +41337,18 @@
 	exports.default = Contact;
 
 /***/ },
-/* 228 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Provider = __webpack_require__(229);
-	var connect = __webpack_require__(231);
+	var Provider = __webpack_require__(244);
+	var connect = __webpack_require__(246);
 
 	module.exports = { Provider: Provider, connect: connect };
 
 /***/ },
-/* 229 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -40393,7 +41365,7 @@
 	var PropTypes = _require.PropTypes;
 	var Children = _require.Children;
 
-	var storeShape = __webpack_require__(230);
+	var storeShape = __webpack_require__(245);
 
 	if (process.env.NODE_ENV !== 'production') {
 	  var warnAboutReceivingStore;
@@ -40466,7 +41438,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 230 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40484,7 +41456,7 @@
 	module.exports = storeShape;
 
 /***/ },
-/* 231 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -40502,11 +41474,11 @@
 	var Component = _require.Component;
 	var createElement = _require.createElement;
 
-	var storeShape = __webpack_require__(230);
-	var shallowEqual = __webpack_require__(232);
-	var isPlainObject = __webpack_require__(233);
-	var wrapActionCreators = __webpack_require__(234);
-	var hoistStatics = __webpack_require__(245);
+	var storeShape = __webpack_require__(245);
+	var shallowEqual = __webpack_require__(247);
+	var isPlainObject = __webpack_require__(248);
+	var wrapActionCreators = __webpack_require__(249);
+	var hoistStatics = __webpack_require__(260);
 	var invariant = __webpack_require__(163);
 
 	var defaultMapStateToProps = function defaultMapStateToProps(state) {
@@ -40756,7 +41728,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 232 */
+/* 247 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -40787,7 +41759,7 @@
 	module.exports = shallowEqual;
 
 /***/ },
-/* 233 */
+/* 248 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -40821,12 +41793,12 @@
 	module.exports = isPlainObject;
 
 /***/ },
-/* 234 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _redux = __webpack_require__(235);
+	var _redux = __webpack_require__(250);
 
 	function wrapActionCreators(actionCreators) {
 	  return function (dispatch) {
@@ -40837,7 +41809,7 @@
 	module.exports = wrapActionCreators;
 
 /***/ },
-/* 235 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -40845,27 +41817,27 @@
 	exports.__esModule = true;
 	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
 
-	var _createStore = __webpack_require__(236);
+	var _createStore = __webpack_require__(251);
 
 	var _createStore2 = _interopRequireDefault(_createStore);
 
-	var _combineReducers = __webpack_require__(240);
+	var _combineReducers = __webpack_require__(255);
 
 	var _combineReducers2 = _interopRequireDefault(_combineReducers);
 
-	var _bindActionCreators = __webpack_require__(242);
+	var _bindActionCreators = __webpack_require__(257);
 
 	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
 
-	var _applyMiddleware = __webpack_require__(243);
+	var _applyMiddleware = __webpack_require__(258);
 
 	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
 
-	var _compose = __webpack_require__(244);
+	var _compose = __webpack_require__(259);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
-	var _warning = __webpack_require__(241);
+	var _warning = __webpack_require__(256);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -40889,7 +41861,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 236 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40898,7 +41870,7 @@
 	exports.ActionTypes = undefined;
 	exports["default"] = createStore;
 
-	var _isPlainObject = __webpack_require__(237);
+	var _isPlainObject = __webpack_require__(252);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
@@ -41110,11 +42082,11 @@
 	}
 
 /***/ },
-/* 237 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isHostObject = __webpack_require__(238),
-	    isObjectLike = __webpack_require__(239);
+	var isHostObject = __webpack_require__(253),
+	    isObjectLike = __webpack_require__(254);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -41184,7 +42156,7 @@
 
 
 /***/ },
-/* 238 */
+/* 253 */
 /***/ function(module, exports) {
 
 	/**
@@ -41210,7 +42182,7 @@
 
 
 /***/ },
-/* 239 */
+/* 254 */
 /***/ function(module, exports) {
 
 	/**
@@ -41244,7 +42216,7 @@
 
 
 /***/ },
-/* 240 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -41252,13 +42224,13 @@
 	exports.__esModule = true;
 	exports["default"] = combineReducers;
 
-	var _createStore = __webpack_require__(236);
+	var _createStore = __webpack_require__(251);
 
-	var _isPlainObject = __webpack_require__(237);
+	var _isPlainObject = __webpack_require__(252);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _warning = __webpack_require__(241);
+	var _warning = __webpack_require__(256);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -41377,7 +42349,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 241 */
+/* 256 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -41406,7 +42378,7 @@
 	}
 
 /***/ },
-/* 242 */
+/* 257 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -41462,7 +42434,7 @@
 	}
 
 /***/ },
-/* 243 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41472,7 +42444,7 @@
 	exports.__esModule = true;
 	exports["default"] = applyMiddleware;
 
-	var _compose = __webpack_require__(244);
+	var _compose = __webpack_require__(259);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
@@ -41524,7 +42496,7 @@
 	}
 
 /***/ },
-/* 244 */
+/* 259 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -41558,7 +42530,7 @@
 	}
 
 /***/ },
-/* 245 */
+/* 260 */
 /***/ function(module, exports) {
 
 	/**
@@ -41600,7 +42572,7 @@
 
 
 /***/ },
-/* 246 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41609,9 +42581,9 @@
 	  value: true
 	});
 
-	var _redux = __webpack_require__(235);
+	var _redux = __webpack_require__(250);
 
-	var _portfolio = __webpack_require__(247);
+	var _portfolio = __webpack_require__(262);
 
 	var _portfolio2 = _interopRequireDefault(_portfolio);
 
@@ -41622,7 +42594,7 @@
 	exports.default = store;
 
 /***/ },
-/* 247 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41631,13 +42603,13 @@
 	  value: true
 	});
 
-	var _constants = __webpack_require__(248);
+	var _constants = __webpack_require__(263);
 
-	var _postData = __webpack_require__(222);
+	var _postData = __webpack_require__(237);
 
 	var _postData2 = _interopRequireDefault(_postData);
 
-	var _redux = __webpack_require__(235);
+	var _redux = __webpack_require__(250);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -41682,7 +42654,7 @@
 	exports.default = rootReducer;
 
 /***/ },
-/* 248 */
+/* 263 */
 /***/ function(module, exports) {
 
 	'use strict';

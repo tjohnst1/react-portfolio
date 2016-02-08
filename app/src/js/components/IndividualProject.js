@@ -15,21 +15,19 @@ export default class IndividualProject extends Component {
     })
     return (
       <div className={containerClasses}>
+        <div className="project-image-container">
+          <div className="project-image" style={projectImg}></div>
+        </div>
         <div className="project-info">
-          <div className="project-summary">
+          <div className="project-heading">
             <h1 className="project-title">{project.title}</h1>
-            <p className="project-brief">{project.brief}</p>
+            <a href={project.link} className="project-launch-btn">Launch Project</a>
           </div>
+          <p className="project-brief">{project.brief}</p>
           <div className="project-metadata">
             <p>Programming Languages: {project.languages.join(", ")}</p>
             <p>Web Frameworks, Libraries, and Utilities: {project.libraries.join(", ")}</p>
-          </div>
-          <div className="project-action-btns">
-            <a href={project.link}>View Live Website</a>
             <a href={project.github}>Source Code</a>
-          </div>
-          <div className="project-image-container">
-            <div className="project-image" style={projectImg}></div>
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ export default class ProjectList extends Component {
     const projectPreviews = projects.map((project, i) => {
       const inlineStyle = {backgroundImage: `url(${project.thumbnail})`}
       return (
-        <Link to={`projects/${project.id}`} className="project-container-link" key={i}>
+        <Link to={`projects/${project.id}`} className="project-link-container" key={i}>
           <div className="project-thumbnail" style={inlineStyle}>
             <h3 className="project-thumbnail-title">{project.title}</h3>
           </div>

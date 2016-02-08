@@ -1,21 +1,26 @@
 .projects-container{
   position: absolute;
-  background: green;
+}
+
+.project-link-container{
+  @include span-columns(4);
+  @include omega(3n);
+  overflow: hidden;
+  text-align: center;
 }
 
 .project-thumbnail{
-  height: 25vh;
-  text-align: center;
   padding: 10px;
   @include transition(all .7s);
+  height: 100%;
+  width: 100%;
   opacity: 1;
 }
 
 .project-thumbnail-title{
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 3em;
+  font-size: 1em;
+  margin: 0;
   &::after{
     content: '';
     position: absolute;
