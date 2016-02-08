@@ -7,3 +7,13 @@
   position: relative;
   vertical-align: bottom;
 }
+
+.contact-links{
+  color: black;
+  &:hover{
+    color:$red;
+    .contact-icon{
+      fill: $red;
+    }
+  }
+}
