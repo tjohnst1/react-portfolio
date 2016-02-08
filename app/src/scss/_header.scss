@@ -1,14 +1,19 @@
 .header-container{
   @include span-columns(12);
-  position: absolute;
-  width: 100%;
   margin: 0;
-  padding: 2% 5% 0;
-  z-index: $z-header
+  padding: 2% 0;
+  z-index: $z-header;
+  text-align: center;
+  @include media($screen-sm-min) {
+    text-align: left;
+  }
 }
 
 .header-logo-container{
-  @include span-columns(6);
+  @include span-columns(12);
+  @include media($screen-sm-min) {
+    @include span-columns(6);
+  }
   // margin: 0;
 }
 
@@ -32,11 +37,21 @@
 }
 
 .header-links-container{
-  @include span-columns(6);
-  text-align: right;
-  margin: 10px 0 0 0;
+  @include span-columns(12);
+  @include media($screen-sm-min) {
+    @include span-columns(6);
+    text-align: center;
+    margin: 10px 0 0 0;
+    padding: 0;
+    border: none;
+  }
+  text-align: center;
+  border-top: 1px solid #eee;
+  margin: 5px 0;
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
   .header-links{
-    @include span-columns(3);
+    @include span-columns(4);
     a{
       color: black;
     }
@@ -45,9 +60,12 @@
         color: red;
       }
     }
-  }
-  .header-links:first-of-type{
-    @include shift(3);
+    @include media($screen-sm-min) {
+      @include span-columns(3);
+      &:first-of-type{
+        @include shift(3);
+      }
+    }
   }
 }
 

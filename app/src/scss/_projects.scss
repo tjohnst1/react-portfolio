@@ -1,13 +1,8 @@
-.projects-container{
-  position: absolute;
-}
-
 .project-link-container{
   @include span-columns(4);
   @include omega(3n);
   overflow: hidden;
   text-align: center;
-  position: relative;
   &:hover{
     .project-arrow-icon{
       visibility: visible;
@@ -33,7 +28,6 @@
     @include transform(translateX(0));
   }
 }
-
 
 .project-thumbnail{
   padding: 10px;
