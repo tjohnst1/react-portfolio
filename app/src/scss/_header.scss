@@ -22,6 +22,12 @@
   position: relative;
   display: inline-block;
   margin: 6px 0 0 0;
+  @include media($screen-sm-min) {
+    width: 30px;
+  }
+  @include media($screen-sm-max) {
+    width: 40px;
+  }
 }
 
 .header-logo{
@@ -31,6 +37,17 @@
   color: black;
   font-weight: 500;
   margin: 5px 5px 0px 10px;
+  @include media($screen-sm-min) {
+    font-size: 1.4em;
+    margin: 5px 5px 0px 7.5px;
+  }
+  @include media(530px) {
+    font-size: 1.6em;
+  }
+  @include media($screen-sm-max) {
+    font-size: 2em;
+    margin: 5px 5px 0px 10px;
+  }
   &.hover{
     color: black;
   }
@@ -38,18 +55,23 @@
 
 .header-links-container{
   @include span-columns(12);
+  text-align: center;
+  border-top: 1px solid #eee;
+  margin: 2% 0 0;
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1em;
   @include media($screen-sm-min) {
     @include span-columns(6);
     text-align: center;
-    margin: 10px 0 0 0;
     padding: 0;
     border: none;
+    font-size: 0.9em;
   }
-  text-align: center;
-  border-top: 1px solid #eee;
-  margin: 5px 0;
-  padding: 5px 0;
-  border-bottom: 1px solid #eee;
+  @include media($screen-sm-max) {
+    font-size: 1em;
+    margin: 10px 0 0;
+  }
   .header-links{
     @include span-columns(4);
     a{
