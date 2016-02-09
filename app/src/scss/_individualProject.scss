@@ -1,27 +1,25 @@
 .project-container{
-  height: 100vh;
-  width: 100%;
+  @include span-columns(12)
+  background: $lt-grey;
+  padding: 1%;
+  margin: 0;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 }
 
 .project-title{
   font-size: 1.75em;
   position: relative;
   margin: 0;
+  color: $red;
   @include span-columns(12);
-  padding: 0 0 0 5px;
 }
 
 .project-image-container{
   @include span-columns(12);
+  @include media($screen-sm-max) {
+    @include span-columns(6);
+  }
 }
-
-.project-info{
-  @include span-columns(12)
-  background: #eee;
-  padding: 3% 5%;
-  margin: 0;
-}
-
 .project-image{
   margin: 10px 0;
 }
@@ -29,6 +27,10 @@
 .project-text{
   @include span-columns(12);
   padding: 0 5px;
+  background: none;
+  @include media($screen-sm-max) {
+    @include span-columns(6);
+  }
 }
 
 .project-brief{
@@ -39,7 +41,7 @@
 
 .project-metadata{
   @include span-columns(12);
-  font-size: 0.8em;
+  font-size: 1em;
   margin: 10px 0;
   p{
     margin: 0 0 10px 0;
@@ -48,21 +50,24 @@
 
 .project-metadata-type{
   margin: 0;
+  color: $md-dk-grey;
+  font-size: 0.8em;
+  font-weight: 300;
 }
 
 .project-cta-btn{
   @include span-columns(6);
-  border: 2px solid black;
+  border: 2px solid $md-grey;
   text-align: center;
   text-transform: uppercase;
   font-size: 0.9em;
-  color: black;
+  color: $md-dk-grey;
   text-decoration: none;
   font-weight: 600;
   @include transition(0.3s ease-in-out);
   &:hover{
     border: 2px solid $red;
-    color: black;
+    color: $dk-grey;
   }
   // &:last-of-type{
   //   margin: 0 0 0 10px;

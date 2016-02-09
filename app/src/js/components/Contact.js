@@ -1,17 +1,11 @@
 import React, {Component, PropTypes} from 'react'
-import classNames from 'classnames'
 import basicInfo from '../../data/basicInfo'
 import Isvg from 'react-inlinesvg'
 
 export default class Contact extends Component {
   render(){
-    const containerClasses = classNames({
-      "fixed-container": true,
-      "offset": true,
-      "contact-container": true
-    })
     return (
-      <div className={containerClasses}>
+      <div className="contact-container">
         <p className="contact-blurb">Do you have a project idea or just want to say hi? Feel free to reach out via e-mail or social media. I&#8217;ll try my best to get back to you promptly.</p>
         <ul>
           <li><a className="contact-links" href={`mailto:${basicInfo.email}?Subject=Hello!`}><Isvg src="/images/email.svg">E-mail: </Isvg>{basicInfo.email}</a></li>

@@ -1,7 +1,7 @@
 .header-container{
   @include span-columns(12);
   margin: 0;
-  padding: 2% 0;
+  padding: 0 0 2%;
   z-index: $z-header;
   text-align: center;
   @include media($screen-sm-min) {
@@ -34,7 +34,7 @@
   font-size: 2em;
   display: inline-block;
   vertical-align: top;
-  color: black;
+  color: $dk-grey;
   font-weight: 500;
   margin: 5px 5px 0px 10px;
   @include media($screen-sm-min) {
@@ -49,7 +49,7 @@
     margin: 5px 5px 0px 10px;
   }
   &.hover{
-    color: black;
+    color: $dk-grey;
   }
 }
 
@@ -74,12 +74,13 @@
   }
   .header-links{
     @include span-columns(4);
+    font-weight: 500;
     a{
-      color: black;
+      color: $dk-grey;
     }
     &.current-route{
       a{
-        color: red;
+        color: $red;
       }
     }
     @include media($screen-sm-min) {

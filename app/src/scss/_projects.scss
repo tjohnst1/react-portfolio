@@ -1,20 +1,30 @@
 .project-link-container{
   @include span-columns(4);
   @include omega(3n);
-  overflow: hidden;
   text-align: center;
   &:hover{
     .project-arrow-icon{
       visibility: visible;
       opacity: 1;
-      fill: $off-white;
+      fill: $dk-grey;
       @include animation-duration(0.5s);
       @include animation-name(arrowSlide);
       @include animation-iteration-count(infinite);
       @include animation-timing-function(ease-in-out);
       @include animation-direction(alternate);
     }
+    .project-thumbnail{
+      opacity: 0.7;
+      box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    .project-thumbnail-title{
+      color: $red;
+    }
   }
+}
+
+.project-thumbnail-container{
+  position: relative;
 }
 
 @include keyframes(arrowSlide) {
@@ -30,18 +40,18 @@
 }
 
 .project-thumbnail{
-  padding: 10px;
-  @include transition(all .7s);
+  @include transition(all .3s ease-in-out);
+  border-radius: 3px;
   height: 31.76157vh;
-  width: 100%;
   opacity: 1;
-  position: relative;
-  background-size: 100%;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
 
 .project-thumbnail-title{
   font-size: 1em;
-  color: black;
+  color: $dk-grey;
   margin: 5px 0 20px;
 }
 
@@ -50,6 +60,6 @@
   visibility: hidden;
   opacity: 0;
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 45%;
 }

@@ -3,18 +3,24 @@
 }
 
 .about-skill-headline{
-  margin: 0 0 5px 0;
-  font-weight: 700;
+  font-size: 0.8em;
+  margin: 0;
+  font-weight: 300;
+  color: $md-dk-grey;
   &.main{
-    font-size: 0.8em;
-    color: $red;
-    margin: 0;
-    font-family: "prenton-condensed";
+    color: $md-grey;
+    margin: 0 0 10px 0;
+    font-weight: 500;
+    padding: 5px 0;
+    font-size: 1.2em;
+    // border-bottom: 1px solid $lt-grey;
+    // border-top: 1px solid $lt-grey;
   }
 }
 
 .about-skill-set{
   margin: 0;
+  font-weight: 500;
   &:first-of-type{
     margin: 0 0 15px 0
   }
