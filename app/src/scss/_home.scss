@@ -8,11 +8,13 @@
   .underline{
     border-bottom: 2px solid $red;
     position: relative;
+    text-decoration: none;
+    color: $dk-grey;
     @include transition(all 0.3s 0.1s);
     &:hover{
       color: $off-white;
       &::after{
-        height: 1em;
+        height: 1.2em;
       }
     }
     &::after{

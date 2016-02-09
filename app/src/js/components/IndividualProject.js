@@ -3,6 +3,7 @@ import postData from '../../data/postData'
 import {findProject} from '../util/utilities'
 
 export default class IndividualProject extends Component {
+  
   render(){
     const project = findProject(Number(this.props.params.projectId), postData)
     const projectImg = {backgroundImage: `url(${project.images})`}
