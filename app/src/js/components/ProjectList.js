@@ -11,7 +11,6 @@ export default class ProjectList extends Component {
       "projects-container": true,
       "fixed-container": true,
       "offset": true,
-      "closed": this.props.navShowing
     })
     const projectPreviews = projects.map((project, i) => {
       const inlineStyle = {backgroundImage: `url(${project.thumbnail})`}

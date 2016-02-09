@@ -8,7 +8,6 @@ export default class Home extends Component {
       "home-container": true,
       "fixed-container": true,
       "offset": true,
-      "closed": this.props.navShowing
     })
     return (
       <div className={containerClasses}>

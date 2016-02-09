@@ -8,7 +8,6 @@ export default class Contact extends Component {
     const containerClasses = classNames({
       "fixed-container": true,
       "offset": true,
-      "closed": this.props.navShowing,
       "contact-container": true
     })
     return (

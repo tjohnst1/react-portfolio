@@ -10,7 +10,6 @@ export default class IndividualProject extends Component {
     const containerClasses = classNames({
       "project-container": true,
       "fixed-container": true,
-      "closed": this.props.navShowing,
       "offset": true,
     })
     return (

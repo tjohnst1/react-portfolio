@@ -8,7 +8,6 @@ export default class About extends Component {
     const containerClasses = classNames({
       "fixed-container": true,
       "offset": true,
-      "closed": this.props.navShowing,
       "about-container": true
     })
     return (
