@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import postData from '../../data/postData'
 import Isvg from 'react-inlinesvg'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import * as _ from 'lodash'
 
 export default class ProjectList extends Component {
   render(){
@@ -19,9 +21,11 @@ export default class ProjectList extends Component {
       )
     })
     return (
-      <div className="projects-container">
-        {projectPreviews}
-      </div>
+      <ReactCSSTransitionGroup transitionName="fade" transitionAppear={true} transitionAppearTimeout={300} transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+        <div className="projects-container transition" key={_.uniqueId()}>
+          {projectPreviews}
+        </div>
+      </ReactCSSTransitionGroup>
     )
   }
 }

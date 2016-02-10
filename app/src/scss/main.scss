@@ -18,31 +18,16 @@ body{
 
 #app{
   padding: 2.5% 5%;
+  @include clearfix;
   @include media($screen-sm-max) {
-    padding: 2.5%;
+    padding: 1.5% 3.5%;
   }
 }
 
-.fixed-container{
-  width: 100%;
-  height: 100%;
-  @include transition(all 0.5s ease-in-out);
+.animation-container{
+  position: relative;
 }
 
-.offset{
-  padding: 25% 5%;
-  @include media($screen-sm-min) {
-    padding: 10% 0;
-  }
-  @include media($screen-sm-max) {
-    padding: 5% 0;
-  }
-}
-
-.closed{
-  @include transform(translateX(100%));
-}
-
-.open{
-  @include transform(translateX(0));
+.transition{
+  @include transition(all .7s ease);
 }
