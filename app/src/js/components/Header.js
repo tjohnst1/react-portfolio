@@ -9,11 +9,10 @@ export default class Header extends Component {
     const contactClasses = classNames({"header-links": true, "current-route": this.props.currentRoute === "/contact"})
     const projectsClasses = classNames({"header-links": true, "current-route": this.props.currentRoute === "/projects"})
     return (
-      <div className="header-container">
+      <div className="header-container container">
         <div className="header-logo-container">
           <a href="/">
             <Isvg src="/images/tj-logo.svg">Travis Johnston</Isvg>
-            <h1 className="header-logo">Travis Johnston</h1>
           </a>
         </div>
         <ul className="header-links-container">

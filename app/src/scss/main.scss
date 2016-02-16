@@ -14,15 +14,11 @@
 
 body{
   margin: 0;
-  font-family: "prenton", sans-serif;
+  font-family: "ardoise-std", sans-serif;
 }
 
 #app{
-  padding: 2.5% 5%;
   @include clearfix;
-  @include media($screen-sm-max) {
-    padding: 1.5% 3.5%;
-  }
 }
 
 .animation-container{
@@ -31,4 +27,8 @@ body{
 
 .transition{
   @include transition(all .7s ease);
+}
+
+.container{
+  padding: 20px;
 }

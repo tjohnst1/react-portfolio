@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Home from '../components/Home'
+import Projects from '../components/ProjectList'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 export default class App extends Component {
@@ -14,10 +16,12 @@ export default class App extends Component {
       }
     )
     const { path } = this.props.route
+    // { childrenWithProps }
     return (
       <div>
         <Header currentRoute={this.props.location.pathname} />
-        { childrenWithProps }
+        <Home />
+        <Projects toggleNav={() => this.toggleNav} />
         <Footer />
       </div>
     )
