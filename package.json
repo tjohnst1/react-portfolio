@@ -8,6 +8,10 @@
   },
   "author": "Travis Johnston",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tjohnst1/react-portfolio.git"
+  },
   "dependencies": {
     "classnames": "^2.2.3",
     "history": "^1.17.0",
