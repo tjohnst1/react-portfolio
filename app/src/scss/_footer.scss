@@ -1,0 +1,15 @@
+footer{
+  padding: 10px;
+  background-color: $dk-grey;
+  color: white;
+  @include row;
+}
+
+.footer-subsection{
+  @include span-columns(4)
+}
+
+.footer-heading{
+  border-bottom: 2px solid $red;
+  display: inline-block;
+}
