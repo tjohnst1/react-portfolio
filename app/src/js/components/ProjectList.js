@@ -23,7 +23,7 @@ export default class ProjectList extends Component {
     // </div>
     return (
       <div className="projects-container">
-        <div className="project-block-2">
+        <div className="project-block">
           <Link className="project-block-link" to={'projects/1'}>
             <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
             <div className="project-block-text">
@@ -32,7 +32,7 @@ export default class ProjectList extends Component {
             </div>
           </Link>
         </div>
-        <div className="project-block-1">
+        <div className="project-block">
           <Link className="project-block-link" to={'projects/1'}>
             <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
             <div className="project-block-text">
@@ -41,7 +41,7 @@ export default class ProjectList extends Component {
             </div>
           </Link>
         </div>
-        <div className="project-block-1">
+        <div className="project-block">
           <Link className="project-block-link" to={'projects/1'}>
             <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
             <div className="project-block-text">
@@ -50,7 +50,7 @@ export default class ProjectList extends Component {
             </div>
           </Link>
         </div>
-        <div className="project-block-2">
+        <div className="project-block">
           <Link className="project-block-link" to={'projects/1'}>
             <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
             <div className="project-block-text">
@@ -59,6 +59,8 @@ export default class ProjectList extends Component {
             </div>
           </Link>
         </div>
+
+
 
       </div>
     )
