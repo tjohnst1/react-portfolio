@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import { Link } from 'react-router'
 import Intro from './Intro'
 import ProjectList from './ProjectList'
+import About from './About'
 import Isvg from 'react-inlinesvg'
 
 export default class Home extends Component {
@@ -10,6 +11,7 @@ export default class Home extends Component {
         <div className="home-container">
           <Intro />
           <ProjectList />
+          <About />
         </div>
     )
   }
