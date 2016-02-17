@@ -59,9 +59,6 @@ export default class ProjectList extends Component {
             </div>
           </Link>
         </div>
-
-
-
       </div>
     )
   }

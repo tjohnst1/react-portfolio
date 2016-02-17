@@ -1,15 +1,29 @@
 footer{
   padding: 10px;
   background-color: $dk-grey;
-  color: white;
-  @include row;
+  text-align: center;
 }
 
-.footer-subsection{
-  @include span-columns(4)
-}
-
-.footer-heading{
-  border-bottom: 2px solid $red;
+.footer-copyright{
+  font-size: .75em;
   display: inline-block;
+  color: $md-grey;
+}
+
+.footer-links{
+  list-style: none;
+  display: inline-block;
+  margin: 0 0 0 20px;
+  a{
+    color: $md-grey;
+  }
+}
+
+.contact-icon{
+  width: 30px;
+  position: relative;
+  vertical-align: bottom;
+  top: 1px;
+  left: 0;
+  fill: $md-grey;
 }

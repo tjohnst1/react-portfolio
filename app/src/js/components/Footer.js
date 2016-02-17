@@ -6,20 +6,12 @@ export default class Footer extends Component {
   render(){
     return (
       <footer>
-        <div className="footer-subsection">
-          <h3 className="footer-heading">Contact</h3>
-          <ul>
-            <li>Travis Johnston</li>
-            <li><a href={`mailto:${basicInfo.email}?Subject=Hello!`}>Tjohnst1@gmail.com</a></li>
-          </ul>
-        </div>
-        <div className="footer-subsection">
-          <h3 className="footer-heading">Connect</h3>
-          <ul>
-            <li><a className="contact-links" href={basicInfo.linkedin}>LinkedIn</a></li>
-            <li><a className="contact-links" href={basicInfo.github}>Github</a></li>
-          </ul>
-        </div>
+        <ul>
+          <li className="footer-links"><a href={`mailto:${basicInfo.email}?Subject=Hello!`}><Isvg src="/images/email.svg">E-mail: </Isvg>{basicInfo.email}</a></li>
+          <li className="footer-links"><a href={basicInfo.linkedin}><Isvg src="/images/linkedin.svg">LinkedIn: </Isvg>{basicInfo.linkedinShort}</a></li>
+          <li className="footer-links"><a href={basicInfo.github}><Isvg src="/images/github.svg">Github: </Isvg>{basicInfo.githubShort}</a></li>
+        </ul>
+        <p className="footer-copyright">© Travis Johnston and TravisJohnston.info, 2016</p>
       </footer>
     )
   }
