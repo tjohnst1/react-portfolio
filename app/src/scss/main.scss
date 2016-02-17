@@ -9,6 +9,7 @@
         'about',
         'contact',
         'home',
+        'nav',
         'footer',
         'transitions';
 
@@ -31,4 +32,5 @@ body{
 
 .container{
   padding: 20px;
+  @include clearfix;
 }

@@ -1,104 +1,52 @@
 .header-container{
+  position: absolute;
+  width: 100%;
   margin: 0;
-  padding: 20px
-  z-index: $z-header;
-  text-align: center;
-  @include clearfix;
-  @include media($screen-sm-min) {
-    text-align: left;
-  }
-}
-
-.header-logo-container{
-  @include span-columns(12);
-  @include media($screen-sm-min) {
-    @include span-columns(6);
-  }
-  // margin: 0;
+  text-align: left;
+  padding: 20px;
+  // z-index: $z-header;
+  @include display(flex);
+  @include flex-direction(row);
 }
 
 .header-logo-icon{
   width: 40px;
+  display: inline-block;
+  fill: $dk-grey;
+}
+
+.header-hamburger-container{
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  background: none;
   position: relative;
-  display: inline-block;
-  margin: 6px 0 0 0;
-  @include media($screen-sm-min) {
-    width: 30px;
-  }
-  @include media($screen-sm-max) {
-    width: 40px;
+  cursor: pointer;
+  margin: 0 20px 0 auto;
+  :active{
+    @include transform(scale(0.95));
   }
 }
 
-.header-logo{
-  font-size: 2em;
-  display: inline-block;
-  vertical-align: top;
-  color: $dk-grey;
-  font-weight: 500;
-  margin: 5px 5px 0px 10px;
-  @include media($screen-sm-min) {
-    font-size: 1.4em;
-    margin: 5px 5px 0px 7.5px;
+.header-hamburger-line{
+  height: 2px;
+  background: $dk-grey;
+  width: 100%;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  &::before, &::after{
+    content: '';
+    height: 2px;
+    background: $dk-grey;
+    width: 100%;
+    position: absolute;
+    left: 0;
   }
-  @include media(530px) {
-    font-size: 1.6em;
+  &::before{
+    top: 6px;
   }
-  @include media($screen-sm-max) {
-    font-size: 2em;
-    margin: 5px 5px 0px 10px;
+  &::after{
+    bottom: 6px;
   }
-  &.hover{
-    color: $dk-grey;
-  }
-}
-
-.header-links-container{
-  @include span-columns(12);
-  text-align: center;
-  border-top: 1px solid $lt-grey;
-  margin: 2% 0 0;
-  padding: 5px 0;
-  border-bottom: 1px solid $lt-grey;
-  font-size: 1em;
-  @include media($screen-sm-min) {
-    @include span-columns(6);
-    text-align: center;
-    padding: 0;
-    border: none;
-    font-size: 0.9em;
-  }
-  @include media($screen-sm-max) {
-    font-size: 1em;
-    margin: 10px 0 0;
-  }
-  .header-links{
-    @include span-columns(4);
-    font-weight: 500;
-    a{
-      color: $md-dk-grey;
-      &:hover{
-        color: $dk-grey;
-      }
-    }
-    &.current-route{
-      a{
-        color: $red;
-      }
-    }
-    @include media($screen-sm-min) {
-      @include span-columns(3);
-      &:first-of-type{
-        @include shift(3);
-      }
-    }
-  }
-}
-
-.header-subheadding{
-  margin: 0;
-}
-
-.header-links{
-  display: inline-block;
 }

@@ -8,18 +8,13 @@ export default class Header extends Component {
     const aboutClasses = classNames({"header-links": true, "current-route": this.props.currentRoute === "/about"})
     const contactClasses = classNames({"header-links": true, "current-route": this.props.currentRoute === "/contact"})
     const projectsClasses = classNames({"header-links": true, "current-route": this.props.currentRoute === "/projects"})
+    const headerContainerClasses = classNames({"nav-open": this.props.navOpen, "header-container": true})
     return (
-      <div className="header-container container">
-        <div className="header-logo-container">
-          <a href="/">
-            <Isvg src="/images/tj-logo.svg">Travis Johnston</Isvg>
-          </a>
+      <div className={headerContainerClasses}>
+        <Isvg src="/images/tj-logo.svg">Travis Johnston</Isvg>
+        <div className="header-hamburger-container" onClick={this.props.toggleNav}>
+          <div className="header-hamburger-line"></div>
         </div>
-        <ul className="header-links-container">
-          <li className={aboutClasses}><Link to="/about">About</Link></li>
-          <li className={contactClasses}><Link to="/contact">Contact</Link></li>
-          <li className={projectsClasses}><Link to="/projects">Projects</Link></li>
-        </ul>
       </div>
     )
   }
