@@ -10,55 +10,29 @@ export default class ProjectList extends Component {
     const projectPreviews = projects.map((project, i) => {
       const inlineStyle = {backgroundImage: `url(${project.images})`}
       return (
-        <Link to={`projects/${project.id}`} className="project-link-container" key={i}>
-          <div className="project-thumbnail-container">
-            <img className="project-thumbnail" src={project.images} alt={`${project.title} Thumbnail`}/>
-          </div>
-          <h3 className="project-thumbnail-title">{project.title}</h3>
-        </Link>
+        <div className="project-block" key={i}>
+          <Link className="project-block-link" to={`projects/${project.id}`}>
+            <div className="project-block-img" style={{backgroundImage: `url('${project.thumbnail}')`}}></div>
+            <div className="project-block-text">
+              <h3 className="project-block-title">{project.title}</h3>
+              <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
+            </div>
+          </Link>
+        </div>
       )
     })
+    // <Link to={`projects/${project.id}`} className="project-link-container" key={i}>
+    //   <div className="project-thumbnail-container">
+    //     <img className="project-thumbnail" src={project.images} alt={`${project.title} Thumbnail`}/>
+    //   </div>
+    //   <h3 className="project-thumbnail-title">{project.title}</h3>
+    // </Link>
     // <div className="projects-container transition" key={_.uniqueId()}>
     //   {projectPreviews}
     // </div>
     return (
       <div className="projects-container">
-        <div className="project-block">
-          <Link className="project-block-link" to={'projects/1'}>
-            <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
-            <div className="project-block-text">
-              <h3 className="project-block-title">Calorie Counter</h3>
-              <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
-            </div>
-          </Link>
-        </div>
-        <div className="project-block">
-          <Link className="project-block-link" to={'projects/1'}>
-            <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
-            <div className="project-block-text">
-              <h3 className="project-block-title">Calorie Counter</h3>
-              <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
-            </div>
-          </Link>
-        </div>
-        <div className="project-block">
-          <Link className="project-block-link" to={'projects/1'}>
-            <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
-            <div className="project-block-text">
-              <h3 className="project-block-title">Calorie Counter</h3>
-              <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
-            </div>
-          </Link>
-        </div>
-        <div className="project-block">
-          <Link className="project-block-link" to={'projects/1'}>
-            <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
-            <div className="project-block-text">
-              <h3 className="project-block-title">Calorie Counter</h3>
-              <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
-            </div>
-          </Link>
-        </div>
+        {projectPreviews}
       </div>
     )
   }

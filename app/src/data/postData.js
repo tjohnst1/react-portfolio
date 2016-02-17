@@ -2,7 +2,7 @@ export default [
   {
     id: 0,
     title:  "A Cart Apart",
-    thumbnail: "/images/acartapart.jpg",
+    thumbnail: "/images/ACartApart.png",
     images: "/images/ACartApart-mockup.png",
     languages: ["JavaScript", "Ruby", "HTML", "CSS"],
     libraries: ["Google Maps API", "jQuery", "VelocityJS", "rSpec", "PhantomJS"],
@@ -13,7 +13,7 @@ export default [
   {
     id: 1,
     title: "Tic Tac Toe",
-    thumbnail: "/images/tictactoe.jpg",
+    thumbnail: "/images/TicTacToe.png",
     images: "/images/TicTacToe-mockup.png",
     languages: ["JavaScript", "HTML", "CSS"],
     libraries: ["jQuery", "Mocha", "Chai"],
@@ -24,7 +24,7 @@ export default [
   {
     id: 2,
     title:  "Calorie Counter",
-    thumbnail: "/images/caloriecounter.jpg",
+    thumbnail: "/images/CalorieCounter.png",
     images: "/images/CalorieCounter-mockup.png",
     languages: ["Ruby", "JavaScript", "HTML", "CSS"],
     libraries: ["Ruby on Rails", "jQuery"],
@@ -35,7 +35,7 @@ export default [
   {
     id: 3,
     title:  "Xenia",
-    thumbnail: "/images/xenia.jpeg",
+    thumbnail: "/images/Xenia.png",
     images: "/images/Xenia-mockup.png",
     languages: ["Ruby", "JavaScript"],
     libraries: ["Sinatra", "jQuery", "RSpec", "Capybara", "Postgres", "Rake", "Active Record"],

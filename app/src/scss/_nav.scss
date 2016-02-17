@@ -9,7 +9,6 @@
   opacity: 0;
   z-index: $z-nav;
   @include transition(all 0.5s);
-  // z-index: $z-nav;
   &.nav-open{
     visibility: visible;
     opacity: 1;
