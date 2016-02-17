@@ -4,6 +4,7 @@
   margin: 0;
   text-align: left;
   padding: 20px;
+  height: 80px;
   // z-index: $z-header;
   @include display(flex);
   @include flex-direction(row);
