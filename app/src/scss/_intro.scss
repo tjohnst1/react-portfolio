@@ -27,4 +27,8 @@
   width: 20px;
   margin: 25px 0 0 0;
   fill: $md-grey;
+  @include transition(all 0.7s);
+  &:hover{
+    fill: $red;
+  }
 }

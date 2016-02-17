@@ -10,136 +10,95 @@
 }
 
 .project-block-1{
-  width: 49%;
-  // background: $md-grey;
+  width: 33%;
   overflow: hidden;
-  height: 200px;
+  height: 300px;
   position: relative;
-  background: $red;
-  text-align: center;
-  .project-block-title{
-    font-size: 2em;
-    position: absolute;
-    right: 0;
-    bottom: 10%;
-    border: 4px solid white;
-    width: 80%;
-    height: 20%;
-    margin: 0 auto;
-  }
+  /* background: #eee; */
+  border: 6px solid #eee;
   .project-block-img{
-    width: 100%;
+    width: 95%;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
+    height: 200px;
+    padding: 20px;
+    margin: 2% auto;
+  }
+  .project-block-text{
+    display: block;
+    position: absolute;
+    left: 5%;
+    bottom: 15%;
+    width: 100%;
+  }
+  .project-block-title{
+    font-size: 2em;
+    color: $dk-grey;
+    margin: 0;
+    // margin: -7% 0 0 0;
+    // width: 100%;
+    // padding: 0 0 0 5%;
+  }
+  .project-block-description{
+    font-size: 0.8em;
+    margin: 0;
+    // display: block;
+    color: $md-grey;
+    // padding: 0 0 0 5%;
   }
 }
 
-.project-block-title{
-  font-size: 2em;
-  position: absolute;
-  left: 0;
-  top: 0;
+// .project-block-title{
+//   font-size: 2em;
+//   left: 0;
+//   top: 0;
+//
+// }
+
+.project-block-link{
+  width: 100%;
+  height: 100%;
 }
 
 .project-block-2{
-  width: 49%;
+  width: 63%;
   // background: #eee;
   overflow: hidden;
-  height: 200px;
-  margin: 0 auto 20px;
+  height: 300px;
+  margin: 0;
   position: relative;
   padding: 20px;
-  &:after{
-    background: #ccc;
-    content: '';
-    position: absolute;
-    left: 5%;
-    top: 20%;
-    width: 15%;
-    height: 5%;
-    @include transition(all 0.8s);
-  }
-  .project-block-title{
-    font-size: 2em;
+  cursor: pointer;
+  .project-block-title-container{
     position: absolute;
     left: 5%;
     width: 55%;
     top: 0;
   }
+  .project-block-text{
+    position: absolute;
+    top: 0;
+    left: 10%;
+  }
+  .project-block-title{
+    font-size: 2em;
+    left: 16%;
+    color: $dk-grey;
+    margin: 0;
+  }
   .project-block-description{
     font-size: 1em;
-    position: absolute;
-    right: 5%;
-    bottom: 10%;
-    width: 70%;
-    height: 30%;
-    background: rgba(255, 255, 255, 0.7);
-    margin: 0;
     font-weight: 600;
-    padding: 5px;
-    visibility: hidden;
-    opacity: 0;
-    @include transition(all 0.5s);
-    @include transform(translateX(20px));
+    color: $dk-grey;
+    margin: 0;
   }
   .project-block-img{
-    width: 80%;
+    width: 90%;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 170px;
+    height: 80%;
     margin: 0 auto;
-    box-shadow: 0;
+    box-shadow: -30px 35px 0 #eee;
     @include transition(all 0.3s);
   }
-  &:hover{
-    .project-block-description{
-      visibility: visible;
-      opacity: 1;
-      @include transform(translateX(0));
-    }
-    &:after{
-      background: $red;
-    }
-    .project-block-img{
-      box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-    }
-  }
-}
-
-
-
-.project-link-container{
-  @include span-columns(4);
-  @include omega(3n);
-  text-align: center;
-  &:hover{
-    .project-thumbnail{
-      opacity: 0.8w;
-      box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    }
-    .project-thumbnail-title{
-      color: $red;
-    }
-  }
-}
-
-.project-thumbnail-container{
-  position: relative;
-}
-
-.project-thumbnail{
-  @include transition(all .3s ease-in-out);
-  border-radius: 3px;
-  height: 31.76157vh;
-  opacity: 1;
-  max-width: 100%;
-  height: auto;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
-}
-
-.project-thumbnail-title{
-  font-size: 1em;
-  color: $dk-grey;
-  margin: 5px 0 20px;
 }

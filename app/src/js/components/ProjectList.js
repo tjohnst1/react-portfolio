@@ -24,25 +24,42 @@ export default class ProjectList extends Component {
     return (
       <div className="projects-container">
         <div className="project-block-2">
-          <h3 className="project-block-title">Calorie Counter</h3>
-          <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
-          <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
+          <Link className="project-block-link" to={'projects/1'}>
+            <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
+            <div className="project-block-text">
+              <h3 className="project-block-title">Calorie Counter</h3>
+              <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
+            </div>
+          </Link>
+        </div>
+        <div className="project-block-1">
+          <Link className="project-block-link" to={'projects/1'}>
+            <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
+            <div className="project-block-text">
+              <h3 className="project-block-title">Calorie Counter</h3>
+              <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
+            </div>
+          </Link>
+        </div>
+        <div className="project-block-1">
+          <Link className="project-block-link" to={'projects/1'}>
+            <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
+            <div className="project-block-text">
+              <h3 className="project-block-title">Calorie Counter</h3>
+              <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
+            </div>
+          </Link>
         </div>
         <div className="project-block-2">
-          <h3 className="project-block-title">Calorie Counter</h3>
-          <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
-          <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
+          <Link className="project-block-link" to={'projects/1'}>
+            <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
+            <div className="project-block-text">
+              <h3 className="project-block-title">Calorie Counter</h3>
+              <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
+            </div>
+          </Link>
         </div>
-        <div className="project-block-2">
-          <h3 className="project-block-title">Calorie Counter</h3>
-          <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
-          <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
-        </div>
-        <div className="project-block-2">
-          <h3 className="project-block-title">Calorie Counter</h3>
-          <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
-          <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
-        </div>
+
       </div>
     )
   }
