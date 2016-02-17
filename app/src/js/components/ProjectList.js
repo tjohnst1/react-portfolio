@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import postData from '../../data/postData'
 import Isvg from 'react-inlinesvg'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import * as _ from 'lodash'
 
 export default class ProjectList extends Component {
@@ -19,12 +18,32 @@ export default class ProjectList extends Component {
         </Link>
       )
     })
+    // <div className="projects-container transition" key={_.uniqueId()}>
+    //   {projectPreviews}
+    // </div>
     return (
-      <ReactCSSTransitionGroup transitionName="fade" transitionAppear={true} transitionAppearTimeout={300} transitionEnterTimeout={300} transitionLeaveTimeout={300}>
-        <div className="projects-container transition" key={_.uniqueId()}>
-          {projectPreviews}
+      <div className="projects-container">
+        <div className="project-block-2">
+          <h3 className="project-block-title">Calorie Counter</h3>
+          <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
+          <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
         </div>
-      </ReactCSSTransitionGroup>
+        <div className="project-block-2">
+          <h3 className="project-block-title">Calorie Counter</h3>
+          <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
+          <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
+        </div>
+        <div className="project-block-2">
+          <h3 className="project-block-title">Calorie Counter</h3>
+          <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
+          <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
+        </div>
+        <div className="project-block-2">
+          <h3 className="project-block-title">Calorie Counter</h3>
+          <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
+          <div className="project-block-img" style={{backgroundImage: "url('/images/caloriecounter-full.png')"}}></div>
+        </div>
+      </div>
     )
   }
 }

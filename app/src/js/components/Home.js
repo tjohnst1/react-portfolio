@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import { Link } from 'react-router'
 import Intro from './Intro'
+import ProjectList from './ProjectList'
 import Isvg from 'react-inlinesvg'
 
 export default class Home extends Component {
@@ -8,6 +9,7 @@ export default class Home extends Component {
     return (
         <div className="home-container">
           <Intro />
+          <ProjectList />
         </div>
     )
   }
