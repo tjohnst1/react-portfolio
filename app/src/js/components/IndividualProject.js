@@ -2,18 +2,20 @@ import React, {Component, PropTypes} from 'react'
 import postData from '../../data/postData'
 import {findProject} from '../util/utilities'
 import Isvg from 'react-inlinesvg'
-import { Link } from 'react-router'
+import classNames from 'classnames'
 
 export default class IndividualProject extends Component {
   render(){
+    console.log(this.props)
     const project = findProject(Number(this.props.projectId), postData)
     const projectImg = {backgroundImage: `url(${project.images})`}
     const prevProjectId = (Number(this.props.projectId) - 1 === -1) ? (postData.length - 1) : (Number(this.props.projectId) - 1)
     const nextProjectId = (Number(this.props.projectId) + 1 === postData.length) ? 0 : (Number(this.props.projectId) + 1)
     const prevProject = findProject(prevProjectId, postData)
     const nextProject = findProject(nextProjectId, postData)
+    const projectContainerClasses = classNames({"project-container": true, "show-project": this.props.showProject})
     return (
-        <div className="project-container">
+        <div className={projectContainerClasses}>
           <div className="single-project-image" style={{backgroundImage: `url(${project.thumbnail})`}}></div>
           <div className="project-text">
             <div className="project-brief-container">

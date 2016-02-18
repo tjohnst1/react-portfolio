@@ -9,11 +9,8 @@ import { Router, Route, IndexRoute } from 'react-router'
 
 export default (
   <Route path="/" component={App}>
-    <Route path="projects" component={ProjectList} />
-    <Route path="projects/:projectId" component={IndividualProject} />
-    <Route path="about" component={About} />
-    <Route path="contact" component={Contact} />
     <Route path="home" component={Home} />
+    <Route path="projects/:projectId" component={IndividualProject} />
     <IndexRoute component={Home} />
   </Route>
 )
