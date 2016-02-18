@@ -33,6 +33,7 @@ export default class IndividualProject extends Component {
               <p>{project.libraries.join(", ")}</p>
             </div>
           </div>
+          <div className="push"></div>
         </div>
     )
   }
