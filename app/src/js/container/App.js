@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 import Home from '../components/Home'
 import Nav from '../components/Nav'
 import Projects from '../components/ProjectList'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import IndividualProject from '../components/IndividualProject'
 
 export default class App extends Component {
   constructor(){
@@ -31,6 +31,7 @@ export default class App extends Component {
         <Header currentRoute={this.props.location.pathname} navOpen={this.state.navOpen} toggleNav={() => this.toggleNav()} />
         <Nav navOpen={this.state.navOpen} toggleNav={() => this.toggleNav()} />
           {this.props.children}
+        <IndividualProject projectId={1}/>
         <Footer />
       </div>
     )
