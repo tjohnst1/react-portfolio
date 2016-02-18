@@ -15,7 +15,6 @@ export default class App extends Component {
     this.state = {
       navOpen: false,
       showProject: false,
-      projectId: 0
     }
   }
   toggleNav(){
@@ -35,7 +34,6 @@ export default class App extends Component {
     // <IndividualProject projectId={this.state.projectId} toggleShowProject={() => this.toggleShowProject()} showProject={this.state.showProject}/>
     var childrenWithProps = React.Children.map(this.props.children, (child) => {
         return React.cloneElement(child, {
-          projectId: this.state.projectId,
           showProject: this.state.showProject,
           navOpen: this.state.navOpen,
           toggleNav: () => this.toggleNav(),

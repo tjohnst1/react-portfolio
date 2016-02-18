@@ -15,7 +15,14 @@ footer{
   display: inline-block;
   margin: 0 0 0 20px;
   a{
+    @include transition(0.3s);
     color: $md-grey;
+    &:hover{
+      color: lighten($md-grey, 7.5%);
+      .contact-icon{
+        fill: lighten($md-grey, 7.5%);
+      }
+    }
   }
 }
 
@@ -26,4 +33,5 @@ footer{
   top: 1px;
   left: 0;
   fill: $md-grey;
+  @include transition(0.3s);
 }

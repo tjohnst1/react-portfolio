@@ -8,12 +8,14 @@
   // opacity: 0;
 }
 
-.single-project-image{
+.project-banner-image{
   width: 100%;
-  height: 20%;
+  height: 200px;
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
+  position: relative;
+  @include transition(0.3s ease);
 }
 
 .project-title{
@@ -62,7 +64,7 @@
   font-size: 1em;
   margin: 10px 0;
   padding: 20px 40px;
-  border: 6px solid #EEE;
+  border: 6px solid $grey;
   display: inline-block;
   p{
     margin: 0 0 10px 0;
@@ -87,7 +89,12 @@
   font-weight: 600;
   padding: 10px 20px;
   margin: 5px 10px 0 0;
+  @include transition(0.3s)
   &:hover{
+    color: white;
+    background: $dk-pastel-blue;
+  }
+  &:active{
     color: white;
   }
 }

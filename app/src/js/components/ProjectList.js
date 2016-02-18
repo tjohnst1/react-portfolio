@@ -21,7 +21,7 @@ export default class ProjectList extends Component {
       )
     })
     return (
-      <div className="projects-container">
+      <div className="projects-container" name="projects">
         {projectPreviews}
       </div>
     )

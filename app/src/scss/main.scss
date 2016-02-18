@@ -11,27 +11,9 @@
         'individualProject',
         'about',
         'contact',
-        'footer',
-        'transitions';
+        'footer';
 
 body{
   margin: 0;
   font-family: "proxima-nova", sans-serif;
-}
-
-#app{
-  @include clearfix;
-}
-
-.animation-container{
-  position: relative;
-}
-
-.transition{
-  @include transition(all .7s ease);
-}
-
-.container{
-  padding: 20px;
-  @include clearfix;
 }

@@ -8,8 +8,8 @@ export default class Header extends Component {
       <div className={navMenuClasses}>
         <nav onClick={this.props.toggleNav}>
           <ul>
-            <li className="nav-link"><a href="/something">Projects</a></li>
-            <li className="nav-link"><a href="/something-else">About</a></li>
+            <li className="nav-link"><a href="#">Projects</a></li>
+            <li className="nav-link"><a href="#">About</a></li>
             <li className="nav-link"><a href="#">Contact</a></li>
           </ul>
           <div className="nav-contact">

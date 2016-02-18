@@ -3,11 +3,11 @@ import postData from '../../data/postData'
 import {findProject} from '../util/utilities'
 import Isvg from 'react-inlinesvg'
 import classNames from 'classnames'
+import _ from 'lodash'
 
 export default class IndividualProject extends Component {
   render(){
-    console.log(this.props)
-    const project = findProject(Number(this.props.projectId), postData)
+    const project = findProject(Number(this.props.params.projectId), postData)
     const projectImg = {backgroundImage: `url(${project.images})`}
     const prevProjectId = (Number(this.props.projectId) - 1 === -1) ? (postData.length - 1) : (Number(this.props.projectId) - 1)
     const nextProjectId = (Number(this.props.projectId) + 1 === postData.length) ? 0 : (Number(this.props.projectId) + 1)
@@ -15,8 +15,8 @@ export default class IndividualProject extends Component {
     const nextProject = findProject(nextProjectId, postData)
     const projectContainerClasses = classNames({"project-container": true, "show-project": this.props.showProject})
     return (
-        <div className={projectContainerClasses}>
-          <div className="single-project-image" style={{backgroundImage: `url(${project.thumbnail})`}}></div>
+        <div className={projectContainerClasses} key={Math.random()}>
+            <div className="project-banner-image" style={{backgroundImage: `url(${project.thumbnail})`}} key={Math.random()}></div>
           <div className="project-text">
             <div className="project-brief-container">
               <h1 className="project-title">{project.title}</h1>
