@@ -35,15 +35,23 @@
 .project-text{
   padding: 20px;
   @include display(flex);
+  @include flex-direction(row);
   height: 100%;
   margin: 0 0 20px 0;
+  @include media(max-width $screen-sm-max) {
+    width: 100%;
+    @include flex-direction(column);
+    margin: 0;
+  }
 }
 
 .project-brief-container{
   width: 60%;
   padding: 0 20px 0 0;
+  @include media(max-width $screen-sm-max) {
+    width: 100%;
+  }
 }
-
 
 .single-project-image{
   width: 100%;
@@ -69,6 +77,11 @@
   display: inline-block;
   p{
     margin: 0 0 10px 0;
+  }
+  @include media(max-width $screen-sm-max) {
+    width: 100%;
+    margin: 20px 0 0;
+    padding: 10px 20px;
   }
 }
 
