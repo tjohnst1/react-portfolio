@@ -5,7 +5,16 @@
 A React/JavaScript site for showcasing the work of Travis Johnston.
 
 ## Setup
-None needed. Checkout the live site at www.travisjohnston.info.
+If you want to run a local copy:
+
+`git clone https://github.com/tjohnst1/tjohnst1.github.io.git`
+`cd tjohnst1.github.io`
+`npm install`
+`npm start`
+
+or...
+
+checkout the live site at www.travisjohnston.info.
 
 ## Technologies Used
 JavaScript, React, Redux, SASS, HTML, Webpack, Gulp
