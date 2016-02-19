@@ -14,14 +14,14 @@ export default class ProjectList extends Component {
             <div className="project-block-img" style={{backgroundImage: `url('${project.thumbnail}')`}}></div>
             <div className="project-block-text">
               <h3 className="project-block-title">{project.title}</h3>
-              <p className="project-block-description">An app that does some stuff. HTML, CSS, Ruby.</p>
+              <p className="project-block-description">{project.deck}</p>
             </div>
           </Link>
         </div>
       )
     })
     return (
-      <div className="projects-container" name="projects">
+      <div className="projects-container" id="projects">
         {projectPreviews}
       </div>
     )

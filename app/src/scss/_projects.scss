@@ -24,18 +24,35 @@
   font-size: 2em;
   color: $dk-grey;
   margin: 0;
+  display: inline-block;
+  padding: 0 5px;
+  background: transparentize($lt-grey, 0.2);
 }
 
 .project-block-description{
   font-size: 1em;
-  font-weight: 600;
-  color: $dk-grey;
+  font-weight: 300;
+  color: white;
   margin: 0;
+  text-shadow: 2px 2px 22px black;
+  width: 90%;
 }
 
 .project-block-img{
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+  &:after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    // @include linear-gradient(-33deg, transparentize(white, 0.8) 10%, transparentize(#60666B, 0.1) 50%, transparentize(white, 0.8) 80%);
+    // background: linear-gradient(135deg, rgba(255,101,100,0.4) 0%, rgba(255,101,100,0) 50%, rgba(255,101,100,0) 100%),linear-gradient(45deg, rgba(40,0,215,0) 0%, rgba(40,0,215,0) 50%, rgba(40,0,215,0.4) 100%),linear-gradient(transparent 5%, rgba(0,0,0,0.8) 100%);
+    position: absolute;
+    background: transparentize($dk-grey, .8);
+  }
 }
 
 .project-block{
@@ -61,11 +78,8 @@
   }
   .project-block-text{
     bottom: auto;
-    top: 0;
+    top: 11%;
     left: 10%;
-  }
-  .project-block-title{
-    left: 16%;
   }
   &:nth-child(4n+2), &:nth-child(4n+3){
     width: 33%;
@@ -80,6 +94,10 @@
     }
     .project-block-title{
       left: 0;
+    }
+    .project-block-description{
+      text-shadow: none;
+      color: $dk-grey;
     }
     .project-block-img{
       width: 95%;

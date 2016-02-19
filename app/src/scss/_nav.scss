@@ -5,7 +5,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  background: $transparent-red;
+  background: transparentize($dk-grey, .3);;
   visibility: hidden;
   opacity: 0;
   z-index: $z-nav;
@@ -31,6 +31,7 @@ nav{
     list-style: none;
     padding: 0;
     margin: 0;
+    font-weight: 500;
   }
 }
 
@@ -40,7 +41,7 @@ nav{
 
 .nav-link{
   display: block;
-  font-size: 3em;
+  font-size: 3.5em;
   opacity: 0.4;
   position: relative;
   @include transition(all 0.3s ease);
@@ -54,18 +55,43 @@ nav{
     @include transition-delay(0.6s);
   }
   a{
-    color: white;
+    color: $lt-grey;
     text-decoration: none;
     cursor: pointer;
+    margin: 0 0 20px 0;
+    display: inline-block;
+    position: relative;
+    &::after{
+      content: '';
+      height: 4px;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: $lt-grey;
+      @include transition(0.5s);
+      @include transform(scaleX(0));
+    }
+    &:hover{
+      color: lighten($lt-grey, 7.5%);
+      &::after{
+        @include transform(scaleX(1));
+        background: lighten($lt-grey, 7.5%);
+      }
+    }
   }
 }
 
 .nav-contact{
   margin: auto 0 20px 0;
+  color: #D6D6D6;
   @include transition(all 0.3s ease);
   @include transform(translateY(10px));
   @include transition-delay(0.8s);
   p{
     margin: 0;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+    font-size: 0.8em;
   }
 }

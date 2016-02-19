@@ -15,6 +15,7 @@ export default class App extends Component {
     this.state = {
       navOpen: false,
       showProject: false,
+      selectedAnchor: null
     }
   }
   toggleNav(){
@@ -27,11 +28,16 @@ export default class App extends Component {
       showProject: !this.state.showProject,
     })
   }
+  setAnchor(anchor){
+    this.setState({selectedAnchor: anchor})
+  }
+  componentDidUpdate(prevProps, prevState){
+    if (this.state.selectedAnchor !== null && this.state.selectedAnchor !== prevState.selectedAnchor){
+      const element = document.getElementById(this.state.selectedAnchor)
+      element.scrollIntoView()
+    }
+  }
   render(){
-    // <Intro />
-    // <ProjectList toggleShowProject={(id) => this.toggleShowProject(id)} />
-    // <About />
-    // <IndividualProject projectId={this.state.projectId} toggleShowProject={() => this.toggleShowProject()} showProject={this.state.showProject}/>
     var childrenWithProps = React.Children.map(this.props.children, (child) => {
         return React.cloneElement(child, {
           showProject: this.state.showProject,
@@ -40,11 +46,10 @@ export default class App extends Component {
           toggleShowProject: () => this.toggleShowProject()
         });
     });
-
     return (
       <div>
         <Header navOpen={this.state.navOpen} toggleNav={() => this.toggleNav()} />
-        <Nav navOpen={this.state.navOpen} toggleNav={() => this.toggleNav()} />
+        <Nav navOpen={this.state.navOpen} toggleNav={() => this.toggleNav()} selectedAnchor={this.state.selectedAnchor} setAnchor={(anchor) => this.setAnchor(anchor)}/>
           {childrenWithProps}
         <Footer />
       </div>
