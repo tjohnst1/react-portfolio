@@ -3,6 +3,10 @@ footer{
   background-color: $dk-grey;
   text-align: center;
   height: 80px;
+  @include media(min-width $screen-sm-max) {
+    text-align: right;
+    padding: 10px 20px;
+  }
 }
 
 .footer-copyright{
@@ -28,6 +32,14 @@ footer{
       .contact-icon{
         fill: lighten($md-grey, 12%);
       }
+    }
+    &:last-of-type{
+      @include media(min-width $screen-sm-max) {
+        margin: 0 0 0 20px ;
+      }
+    }
+    @include media(min-width $screen-sm-max) {
+      margin: 0 20px;
     }
   }
 }
