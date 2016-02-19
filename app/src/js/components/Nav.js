@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import classNames from 'classnames'
 import { Link } from 'react-router'
+import basicInfo from '../../data/basicInfo'
 
 export default class Header extends Component {
   render(){
@@ -15,8 +16,11 @@ export default class Header extends Component {
             <li className="nav-link"><Link to={"/#about"} onClick={() => this.props.setAnchor('about')}>About</Link></li>
           </ul>
           <div className="nav-contact">
-            <p>Travis Johnston</p>
-            <p>tjohnst1@gmail.com</p>
+            <ul>
+              <li><a href={basicInfo.linkedin} className="nav-contact-links">Linked In</a></li>
+              <li><a href={`mailto:${basicInfo.email}?Subject=Hello!`} className="nav-contact-links">E-mail</a></li>
+              <li><a href={basicInfo.github} className="nav-contact-links">GitHub</a></li>
+            </ul>
           </div>
         </nav>
       </div>

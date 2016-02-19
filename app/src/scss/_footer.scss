@@ -2,26 +2,31 @@ footer{
   padding: 10px;
   background-color: $dk-grey;
   text-align: center;
-  height: 100px;
+  height: 80px;
 }
 
 .footer-copyright{
   font-size: .75em;
   display: inline-block;
-  color: $md-grey;
+  color: darken($md-grey, 15%);
+  margin: 0;
 }
 
 .footer-links{
   list-style: none;
   display: inline-block;
-  margin: 0 0 0 20px;
   a{
     @include transition(0.3s);
     color: $md-grey;
+    margin: 0 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    font-weight: 500;
+    font-size: .8em;
     &:hover{
-      color: lighten($md-grey, 7.5%);
+      color: lighten($md-grey, 12%);
       .contact-icon{
-        fill: lighten($md-grey, 7.5%);
+        fill: lighten($md-grey, 12%);
       }
     }
   }

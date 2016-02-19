@@ -84,14 +84,29 @@ nav{
 
 .nav-contact{
   margin: auto 0 20px 0;
-  color: #D6D6D6;
   @include transition(all 0.3s ease);
   @include transform(translateY(10px));
   @include transition-delay(0.8s);
-  p{
-    margin: 0;
-    letter-spacing: 0.5px;
-    font-weight: 300;
-    font-size: 0.8em;
+  ul {
+    list-style: none;
+    li{
+      display: inline-block;
+    }
+  }
+}
+
+.nav-contact-links{
+  @include transition(0.3s);
+  color: $md-grey;
+  margin: 0 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  font-weight: 500;
+  font-size: .8em;
+  &:hover{
+    color: lighten($md-grey, 12%);
+    .contact-icon{
+      fill: lighten($md-grey, 12%);
+    }
   }
 }
