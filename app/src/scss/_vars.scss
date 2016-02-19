@@ -1,0 +1,24 @@
+// colors
+$red: #E01717;
+$transparent-red: rgba(224, 23, 23, 0.85);
+$off-white: #F7F3F0;
+$lt-grey: #F6F6F8;
+$grey: #EEEEEE;
+$md-grey: #BDBDBD;
+$md-dk-grey: #757575;
+$dk-grey: #212121;
+$pastel-blue: #B0CCD2;
+
+// breakpoints
+$min-width: 320px;
+$screen-xs-min: 320px;
+$screen-xs-max: 480px;
+$screen-sm-min: $screen-xs-max + 1;
+$screen-sm-max: 768px;
+$screen-md-min: $screen-sm-max + 1;
+$screen-md-max: 992px;
+$screen-lg-min: $screen-md-max + 1;
+$screen-lg-max: 1200px;
+$screen-xl-min: $screen-lg-max + 1;
+
+$summary: 1.4em;
