@@ -34,7 +34,7 @@ export default class App extends Component {
   componentDidUpdate(prevProps, prevState){
     if (this.state.selectedAnchor !== null && this.state.selectedAnchor !== prevState.selectedAnchor){
       const element = document.getElementById(this.state.selectedAnchor)
-      element.scrollIntoView()
+      element.scrollIntoView({behavior: "smooth"})
     }
   }
   render(){

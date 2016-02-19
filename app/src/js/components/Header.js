@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import classNames from 'classnames'
 import Isvg from 'react-inlinesvg'
+import { Link } from 'react-router'
 
 export default class Header extends Component {
   render(){
@@ -10,7 +11,9 @@ export default class Header extends Component {
     const headerContainerClasses = classNames({"nav-open": this.props.navOpen, "header-container": true})
     return (
       <div className={headerContainerClasses}>
-        <Isvg src="/images/tj-logo.svg">Travis Johnston</Isvg>
+        <Link to={"/"}>
+          <Isvg src="/images/tj-logo.svg">Travis Johnston</Isvg>
+        </Link>
         <div className="header-hamburger-container" onClick={this.props.toggleNav}>
           <div className="header-hamburger-line"></div>
         </div>
