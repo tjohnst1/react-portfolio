@@ -7,6 +7,16 @@
   padding: 20px;
   height: auto;
   width: 100%;
+  @include media(max-width $screen-sm-max) {
+    @include flex-direction(column);
+    .project-block{
+      width: 100%;
+      margin: 0 0 20px 0;
+      &:nth-child(4n+2), &:nth-child(4n+3){
+        width: 100%;
+      }
+    }
+  }
 }
 
 .project-block-link{
