@@ -7,7 +7,9 @@ export default class Intro extends Component {
         <div className="intro-container">
           <p className="intro-headline">Travis Johnston</p>
           <p className="intro-deck">Web Developer & Designer</p>
-          <Isvg src="/images/down-arrow.svg">Learn More</Isvg>
+          <a href="/#projects">
+            <Isvg src="/images/down-arrow.svg">Learn More</Isvg>
+          </a>
         </div>
     )
   }

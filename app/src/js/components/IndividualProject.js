@@ -27,9 +27,9 @@ export default class IndividualProject extends Component {
               </div>
             </div>
             <div className="project-metadata">
-              <h4 className="project-metadata-type">Programming Languages</h4>
+              <h4 className="project-metadata-type">Languages</h4>
               <p>{project.languages.join(", ")}</p>
-              <h4 className="project-metadata-type">Web Frameworks, Libraries, and Utilities</h4>
+              <h4 className="project-metadata-type">Frameworks, Libraries, and Utilities</h4>
               <p>{project.libraries.join(", ")}</p>
             </div>
           </div>
