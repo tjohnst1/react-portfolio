@@ -26770,33 +26770,25 @@
 	  _createClass(ProjectList, [{
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
-
 	      var projects = _postData2.default;
 	      var projectPreviews = projects.map(function (project, i) {
 	        var inlineStyle = { backgroundImage: 'url(' + project.images + ')' };
 	        return _react2.default.createElement(
-	          'div',
-	          { className: 'project-block', onClick: function onClick() {
-	              return _this2.props.toggleShowProject(project.id);
-	            }, key: i },
+	          _reactRouter.Link,
+	          { to: 'projects/' + project.id, className: 'project-block', key: i },
+	          _react2.default.createElement('div', { className: 'project-block-img', style: { backgroundImage: 'url(\'' + project.thumbnail + '\')' } }),
 	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: 'projects/' + project.id, className: 'project-block-link' },
-	            _react2.default.createElement('div', { className: 'project-block-img', style: { backgroundImage: 'url(\'' + project.thumbnail + '\')' } }),
+	            'div',
+	            { className: 'project-block-text' },
 	            _react2.default.createElement(
-	              'div',
-	              { className: 'project-block-text' },
-	              _react2.default.createElement(
-	                'h3',
-	                { className: 'project-block-title' },
-	                project.title
-	              ),
-	              _react2.default.createElement(
-	                'p',
-	                { className: 'project-block-description' },
-	                project.deck
-	              )
+	              'h3',
+	              { className: 'project-block-title' },
+	              project.title
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              { className: 'project-block-description' },
+	              project.deck
 	            )
 	          )
 	        );
