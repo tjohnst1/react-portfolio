@@ -5,7 +5,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  background: transparentize($dk-grey, .2);;
+  background: transparentize($dk-grey, 0.2);
   visibility: hidden;
   opacity: 0;
   z-index: $z-nav;

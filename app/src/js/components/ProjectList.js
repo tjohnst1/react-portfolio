@@ -9,15 +9,13 @@ export default class ProjectList extends Component {
     const projectPreviews = projects.map((project, i) => {
       const inlineStyle = {backgroundImage: `url(${project.images})`}
       return (
-        <div className="project-block" onClick={() => this.props.toggleShowProject(project.id)} key={i}>
-          <Link to={`projects/${project.id}`} className="project-block-link">
-            <div className="project-block-img" style={{backgroundImage: `url('${project.thumbnail}')`}}></div>
-            <div className="project-block-text">
-              <h3 className="project-block-title">{project.title}</h3>
-              <p className="project-block-description">{project.deck}</p>
-            </div>
-          </Link>
-        </div>
+        <Link to={`projects/${project.id}`} className="project-block" key={i}>
+          <div className="project-block-img" style={{backgroundImage: `url('${project.thumbnail}')`}}></div>
+          <div className="project-block-text">
+            <h3 className="project-block-title">{project.title}</h3>
+            <p className="project-block-description">{project.deck}</p>
+          </div>
+        </Link>
       )
     })
     return (

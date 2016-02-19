@@ -19,11 +19,6 @@
   }
 }
 
-.project-block-link{
-  width: 100%;
-  height: 100%;
-}
-
 .project-block-text{
   position: absolute;
   display: block;
@@ -58,8 +53,6 @@
     height: 100%;
     top: 0;
     left: 0;
-    // @include linear-gradient(-33deg, transparentize(white, 0.8) 10%, transparentize(#60666B, 0.1) 50%, transparentize(white, 0.8) 80%);
-    // background: linear-gradient(135deg, rgba(255,101,100,0.4) 0%, rgba(255,101,100,0) 50%, rgba(255,101,100,0) 100%),linear-gradient(45deg, rgba(40,0,215,0) 0%, rgba(40,0,215,0) 50%, rgba(40,0,215,0.4) 100%),linear-gradient(transparent 5%, rgba(0,0,0,0.8) 100%);
     position: absolute;
     background: transparentize($dk-grey, .8);
   }
@@ -75,6 +68,9 @@
   padding: 20px;
   border: none;
   @include transition(0.3s);
+  &:hover{
+    transform: scale(1.025);
+  }
   .project-block-img{
     width: 90%;
     height: 80%;
@@ -82,14 +78,19 @@
     padding: 0;
     box-shadow: -30px 35px 0 $grey;
     @include transition(0.3s);
-    &:hover{
-      box-shadow: -30px 35px 0 darken($grey, 5%);
-    }
   }
   .project-block-text{
     bottom: auto;
     top: 11%;
     left: 10%;
+  }
+  &:nth-child(4n+1), &:nth-child(4n+4){
+    &:hover{
+      .project-block-img{
+      box-shadow: -35px 40px 0 darken($grey, 5%);
+      opacity: .85;
+      }
+    }
   }
   &:nth-child(4n+2), &:nth-child(4n+3){
     width: 33%;
@@ -97,6 +98,7 @@
     border: 6px solid $grey;
     &:hover{
       border: 6px solid darken($grey, 5%);
+      opacity: .85;
     }
     .project-block-text{
       left: 5%;
