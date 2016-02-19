@@ -25,6 +25,6 @@ gulp.task('watch', function(){
 });
 
 gulp.task('publish', function(){
-  gulp.src('./app/dist/*')
+  gulp.src('app/dist/**/*.*')
   .pipe(gulp.dest('./'));
 })
