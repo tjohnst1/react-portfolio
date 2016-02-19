@@ -1,7 +1,5 @@
 node_modules
 bower_components
 .DS_Store
-dist/images
-app/dist/images
 app/src/img
 src/img
