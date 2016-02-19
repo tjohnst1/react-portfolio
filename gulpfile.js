@@ -23,3 +23,8 @@ gulp.task('optimize-imgs', function(){
 gulp.task('watch', function(){
   gulp.watch('app/src/scss/**/*.scss', ['build-css']);
 });
+
+gulp.task('publish', function(){
+  gulp.src('./app/dist/*')
+  .pipe(gulp.dest('./'));
+})
