@@ -14,11 +14,18 @@ footer{
   display: inline-block;
   color: darken($md-grey, 15%);
   margin: 0;
+  @include media(max-width $screen-xs-max) {
+    font-size: .6em;
+  }
 }
 
 .footer-links{
   list-style: none;
   display: inline-block;
+  width: 100%;
+  @include media(max-width $screen-xs-max) {
+    width: 33%;
+  }
   a{
     @include transition(0.3s);
     color: $md-grey;
@@ -37,9 +44,15 @@ footer{
       @include media(min-width $screen-sm-max) {
         margin: 0 0 0 20px ;
       }
+      @include media(max-width $screen-xs-max) {
+        margin: 0 0 0 10px ;
+      }
     }
     @include media(min-width $screen-sm-max) {
       margin: 0 20px;
+    }
+    @include media(max-width $screen-xs-max) {
+      margin: 0;
     }
   }
 }

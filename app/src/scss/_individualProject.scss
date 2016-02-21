@@ -21,6 +21,9 @@
   margin: 0 0 20px 0;
   position: relative;
   display: inline-block;
+  @include media(max-width $screen-xs-max) {
+    font-size: 2.5em;
+  }
   &:after{
     content: '';
     height: 5px;

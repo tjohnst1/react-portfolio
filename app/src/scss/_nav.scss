@@ -91,6 +91,9 @@ nav{
     list-style: none;
     li{
       display: inline-block;
+      @include media(max-width $screen-xs-max) {
+        width: 33%;
+      }
     }
   }
 }
@@ -103,6 +106,9 @@ nav{
   letter-spacing: 0.75px;
   font-weight: 500;
   font-size: .8em;
+  @include media(max-width $screen-xs-max) {
+    margin: 0;
+  }
   &:hover{
     color: lighten($md-grey, 12%);
     .contact-icon{
