@@ -22,7 +22,7 @@ footer{
 .footer-links{
   list-style: none;
   display: inline-block;
-  width: 100%;
+  width: auto;
   @include media(max-width $screen-xs-max) {
     width: 33%;
   }
