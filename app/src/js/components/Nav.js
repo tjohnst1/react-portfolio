@@ -6,7 +6,6 @@ import basicInfo from '../../data/basicInfo'
 export default class Header extends Component {
   render(){
     const navMenuClasses = classNames({"nav-open": this.props.navOpen, "nav-container": true})
-    console.log(this.props)
     return (
       <div className={navMenuClasses}>
         <nav onClick={this.props.toggleNav}>

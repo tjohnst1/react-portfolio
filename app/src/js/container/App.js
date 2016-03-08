@@ -22,7 +22,6 @@ export default class App extends Component {
     this.setState({navOpen: !this.state.navOpen})
   }
   toggleShowProject(id){
-    console.log(id)
     this.setState({
       projectId: id,
       showProject: !this.state.showProject,
