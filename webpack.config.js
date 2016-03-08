@@ -1,3 +1,9 @@
+var webpack = require('webpack');
+
+var productionPlugin = new webpack.DefinePlugin({
+'process.env': {NODE_ENV: '"production"'}
+});
+
 module.exports = {
   entry: "./app/src/js/index.js",
   output: {
@@ -9,6 +15,7 @@ module.exports = {
     inline: true,
     contentBase: './app/dist',
   },
+  plugins: [productionPlugin],
   module: {
     loaders: [
       {

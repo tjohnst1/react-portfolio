@@ -30,20 +30,22 @@
 }
 
 .header-hamburger-line{
-  height: 2px;
+  height: 4px;
   background: $dk-grey;
   width: 100%;
   position: absolute;
   top: 12px;
   left: 0;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   &::before, &::after{
     content: '';
-    height: 2px;
+    height: 4px;
     background: $dk-grey;
-    width: 100%;
+    width: 25px;
     position: absolute;
-    left: 0;
-  }
+    left: -1px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    }
   &::before{
     top: 6px;
   }
