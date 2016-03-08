@@ -37,14 +37,14 @@ export default [
   },
   {
     id: 3,
-    title:  "Xenia",
-    thumbnail: "/images/Xenia.png",
-    images: "/images/Xenia-mockup.png",
-    languages: ["Ruby", "JavaScript"],
-    libraries: ["Sinatra", "jQuery", "RSpec", "Capybara"],
-    github: "https://github.com/afr114/shelter_resources",
-    link: "https://xenia.herokuapp.com",
-    deck: "Help the less fortunate among us.",
-    brief: "This small application allows users locate nearby shelters according to resource needs. It was created (with help from Abdul Rahimi, Alisa Colón, and Vaughn Dice) to fulfill a group project assignment at Epicodus."
+    title:  "PDX Concert Guide",
+    thumbnail: "/images/PDXConcertGuide.png",
+    images: "/images/PDXConcertGuide.png",
+    languages: ["JavaScript (ES6)", "HTML5", "SASS"],
+    libraries: ["Angular", "Node", "Webpack", "Gulp"],
+    github: "https://github.com/tjohnst1/pdx-concert-listings",
+    link: "http://travisjohnston.info/pdx-concert-listings/",
+    deck: "Find out about upcoming concerts.",
+    brief: "This application allows users browse concert listings for the Portland, OR metro area. The raw data used in this project is provided by SongKick, Spotify, and Last.fm."
   }
 ]
