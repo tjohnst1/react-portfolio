@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { Link } from 'react-router'
 import basicInfo from '../../data/basicInfo'
 
-export default class Header extends Component {
+export default class Nav extends Component {
   render(){
     const navMenuClasses = classNames({"nav-open": this.props.navOpen, "nav-container": true})
     return (

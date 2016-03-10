@@ -9,13 +9,14 @@ export default class Header extends Component {
     const contactClasses = classNames({"header-links": true, "current-route": this.props.currentRoute === "/contact"})
     const projectsClasses = classNames({"header-links": true, "current-route": this.props.currentRoute === "/projects"})
     const headerContainerClasses = classNames({"nav-open": this.props.navOpen, "header-container": true})
+    const headerHamburgerLineClasses = classNames({"header-hamburger-line": true, "dark": this.props.navIconColor === "dark", "light": this.props.navIconColor === "light"})
     return (
       <div className={headerContainerClasses}>
         <Link to={"/"}>
           <Isvg src="/images/tj-logo.svg">Travis Johnston</Isvg>
         </Link>
         <div className="header-hamburger-container" onClick={this.props.toggleNav}>
-          <div className="header-hamburger-line"></div>
+          <div className={headerHamburgerLineClasses}></div>
         </div>
       </div>
     )

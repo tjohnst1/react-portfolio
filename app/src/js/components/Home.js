@@ -5,6 +5,9 @@ import About from './About'
 import Isvg from 'react-inlinesvg'
 
 export default class Home extends Component {
+  componentWillMount(){
+    this.props.changeNavIconColor('dark');
+  }
   render(){
     return (
         <div className="home-container">

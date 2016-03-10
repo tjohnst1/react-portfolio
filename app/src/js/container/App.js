@@ -15,11 +15,15 @@ export default class App extends Component {
     this.state = {
       navOpen: false,
       showProject: false,
-      selectedAnchor: null
+      selectedAnchor: null,
+      navIconColor: 'dark'
     }
   }
   toggleNav(){
     this.setState({navOpen: !this.state.navOpen})
+  }
+  changeNavIconColor(color){
+    this.setState({navIconColor: color})
   }
   toggleShowProject(id){
     this.setState({
@@ -42,12 +46,13 @@ export default class App extends Component {
           showProject: this.state.showProject,
           navOpen: this.state.navOpen,
           toggleNav: () => this.toggleNav(),
-          toggleShowProject: () => this.toggleShowProject()
+          toggleShowProject: () => this.toggleShowProject(),
+          changeNavIconColor: (color) => this.changeNavIconColor(color)
         });
     });
     return (
       <div>
-        <Header navOpen={this.state.navOpen} toggleNav={() => this.toggleNav()} />
+        <Header navOpen={this.state.navOpen} toggleNav={() => this.toggleNav()} navIconColor={this.state.navIconColor}/>
         <Nav navOpen={this.state.navOpen} toggleNav={() => this.toggleNav()} selectedAnchor={this.state.selectedAnchor} setAnchor={(anchor) => this.setAnchor(anchor)}/>
           {childrenWithProps}
         <Footer />

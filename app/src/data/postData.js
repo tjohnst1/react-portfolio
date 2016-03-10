@@ -9,7 +9,8 @@ export default [
     github: "https://github.com/tjohnst1/A_Cart_Apart",
     link: "https://a-cart-apart.herokuapp.com/",
     deck: "Find Portland area foodcarts by name or cuisine.",
-    brief: "This JavaScript/Rails application allows users to find Portland, OR area food carts based off of various categories and preferences. It also allows users to create an account and leave reviews for individual carts."
+    brief: "This JavaScript/Rails application allows users to find Portland, OR area food carts based off of various categories and preferences. It also allows users to create an account and leave reviews for individual carts.",
+    navIconColor: "light"
   },
   {
     id: 1,
@@ -21,7 +22,8 @@ export default [
     github: "https://github.com/tjohnst1/TicTacToe",
     link: "https://fathomless-forest-5686.herokuapp.com/",
     deck: "Play against a friend or the computer.",
-    brief: "This JavaScript version of the game Tic Tac Toe was created as part of a one-day assignments at Epicodus. It allows users to choose between one and two player modes."
+    brief: "This JavaScript version of the game Tic Tac Toe was created as part of a one-day assignments at Epicodus. It allows users to choose between one and two player modes.",
+    navIconColor: "dark"
   },
   {
     id: 2,
@@ -33,7 +35,8 @@ export default [
     github: "https://github.com/tjohnst1/health-tracker",
     link: "https://sheltered-anchorage-2234.herokuapp.com/",
     deck: "Track your daily caloric intake.",
-    brief: "This is a Rails application that calculates caloric intake based off of input parameters. Users can sign in, input different foods that they consumed, and see the amount of calories that they consumed per meal and for the entire day. All entries are persisted in a database for later retrieval."
+    brief: "This is a Rails application that calculates caloric intake based off of input parameters. Users can sign in, input different foods that they consumed, and see the amount of calories that they consumed per meal and for the entire day. All entries are persisted in a database for later retrieval.",
+    navIconColor: "dark"
   },
   {
     id: 3,
@@ -45,6 +48,7 @@ export default [
     github: "https://github.com/tjohnst1/pdx-concert-listings",
     link: "http://travisjohnston.info/pdx-concert-listings/",
     deck: "Find out about upcoming concerts.",
-    brief: "This application allows users browse concert listings for the Portland, OR metro area. The raw data used in this project is provided by SongKick, Spotify, and Last.fm."
+    brief: "This application allows users browse concert listings for the Portland, OR metro area. The raw data used in this project is provided by SongKick, Spotify, and Last.fm.",
+    navIconColor: "light"
   }
 ]
