@@ -1,9 +1,13 @@
+.header-background{
+  position: relative;
+  width: 100%;
+}
+
 .header-container{
   position: absolute;
   width: 100%;
-  margin: 0;
   text-align: left;
-  padding: 20px;
+  padding: 20px 3% 20px 6%;
   height: 80px;
   z-index: $z-header;
   @include display(flex);
@@ -22,7 +26,7 @@
   background: none;
   position: relative;
   cursor: pointer;
-  margin: 0 20px 0 auto;
+  margin: 0 0 0 auto;
   :active{
     @include transform(scale(0.95));
   }

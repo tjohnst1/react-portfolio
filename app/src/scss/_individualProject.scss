@@ -1,7 +1,6 @@
 .project-container{
   height: 100%;
   min-height: 100vh;
-  width: 100%;
   background: $lt-grey;
   margin: 0 auto -80px;
 }
@@ -37,11 +36,12 @@
 }
 
 .project-text{
+  max-width: 1220px;
   padding: 20px;
   @include display(flex);
   @include flex-direction(row);
   height: 100%;
-  margin: 0 0 20px 0;
+  margin: 0 auto 20px;
   @include media(max-width $screen-sm-max) {
     width: 100%;
     @include flex-direction(column);

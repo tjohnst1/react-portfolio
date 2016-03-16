@@ -19,8 +19,10 @@ export default class ProjectList extends Component {
       )
     })
     return (
-      <div className="projects-container" id="projects">
-        {projectPreviews}
+      <div className="projects-background">
+        <div className="projects-container" id="projects">
+          {projectPreviews}
+        </div>
       </div>
     )
   }

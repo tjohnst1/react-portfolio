@@ -1,12 +1,18 @@
+.projects-background{
+  width: 100%;
+  background: $lt-grey;
+}
+
 .projects-container{
   @include display(flex);
   @include flex-direction(row);
   @include flex-wrap(wrap);
   @include justify-content(space-around);
-  background: $lt-grey;
   padding: 20px;
   height: auto;
   width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
   @include media(max-width $screen-sm-max) {
     @include flex-direction(column);
     .project-block{

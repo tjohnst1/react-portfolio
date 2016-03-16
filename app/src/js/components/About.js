@@ -5,6 +5,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 export default class About extends Component {
   render(){
     return (
+      <div className="about-background">
         <div className="about-container" id="about">
           <h3 className="about-header">About</h3>
           <p className="about-summary">I am front end web developer with previous experience in graphic design and video post production. My interests, among others, include design, technology, and about how to express ideas creatively in the digital space.</p>
@@ -16,6 +17,7 @@ export default class About extends Component {
               <p className="about-skill-set">After Effects, Atom, Compressor, Excel, Final Cut Pro, Illustrator, InDesign, Photoshop, PowerPoint, Premiere</p>
           </div>
         </div>
+      </div>
     )
   }
 
