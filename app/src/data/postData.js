@@ -50,5 +50,32 @@ export default [
     deck: "Find out about upcoming concerts.",
     brief: "This application allows users browse concert listings for the Portland, OR metro area. The raw data used in this project is provided by SongKick, Spotify, and Last.fm.",
     navIconColor: "light"
-  }
+  },
+  {
+    id: 4,
+    title:  "TravisJohnston.info",
+    thumbnail: "/images/Portfolio.png",
+    images: "/images/Portfolio.png",
+    languages: ["JavaScript (ES6)", "HTML5", "SASS"],
+    libraries: ["React", "Webpack", "Gulp"],
+    github: "https://github.com/tjohnst1/tjohnst1.github.io",
+    link: "http://travisjohnston.info/",
+    deck: "The portfolio of Travis Johnston.",
+    brief: "A React/JavaScript site for showcasing the work of Travis Johnston.",
+    navIconColor: "light"
+  },
+  {
+    id: 5,
+    title:  "Paint",
+    thumbnail: "/images/ReactPaint.png",
+    images: "/images/ReactPaint.png",
+    languages: ["JavaScript (ES6)", "HTML5", "SASS"],
+    libraries: ["React", "Webpack", "Gulp"],
+    github: "https://github.com/tjohnst1/react-paint",
+    link: "http://travisjohnston.info/react-paint/",
+    deck: "MS Paint for the browser.",
+    brief: "A React/JavaScript application that allows the user to draw in browser using a variety of different tools. Please note: this is still a work in progress.",
+    navIconColor: "light"
+  },
+
 ]
