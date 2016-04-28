@@ -116,7 +116,7 @@
     color: white;
     background: darken($pastel-blue, 5%);
   }
-  &:active{
+  &:active, &:focus{
     color: white;
   }
 }

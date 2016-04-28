@@ -8,7 +8,7 @@ export default class About extends Component {
       <div className="about-background">
         <div className="about-container" id="about">
           <h3 className="about-header">About</h3>
-          <p className="about-summary">I am web developer and designer with previous experience in the fields of video and design. My interests include, among others, design, technology, and about how to express ideas creatively in the digital space.</p>
+          <p className="about-summary">I am web developer and designer with previous experience in the fields of video and design. My interests include, among other things, design, technology, and about how to express ideas creatively in the digital space.</p>
           <div className="about-skills-container">
             <h3 className="about-skill-headline main">Skills</h3>
               <h4 className="about-skill-headline">Programming Languages</h4>
